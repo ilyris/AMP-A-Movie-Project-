@@ -15,12 +15,12 @@ const Movie = ({ title, moviesArray, image }, props) => {
 };
 
 const TitleHeading = styled.h2`
-font-size: 1.4rem;
-letter-spacing: 1px;
-color: #fff;
-padding: 10px 0;
-text-transform: capitalize;
-width: 100%;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  color: #fff;
+  padding: 10px 0;
+  text-transform: capitalize;
+  width: 100%;
 `;
 
 const Image = styled.img`

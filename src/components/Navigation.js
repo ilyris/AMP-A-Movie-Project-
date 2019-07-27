@@ -2,6 +2,8 @@ import React from 'react';
 import SearchBox from "./SearchBox";
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 const Navigation = ({searchChange, submitUsersRecipe, handleKeyPress }) => {
     return(
@@ -30,7 +32,7 @@ const Navigation = ({searchChange, submitUsersRecipe, handleKeyPress }) => {
                 handleKeyPress={handleKeyPress}
             />
             <UserAccountLoginContainer>
-                <StyledLink to="/user">Login</StyledLink>
+                <StyledLink to="/user"><FontAwesomeIcon icon={faUser}/></StyledLink>
             </UserAccountLoginContainer>
         </NavigationWrapper>
     );
@@ -41,13 +43,15 @@ const NavigationWrapper = styled.div`
     align-items: center;
     flex-direction: row;
     justify-content: space-evenly;
-    position: fixed;
     top: 0;
     width: 100%;
-    padding: 20px 0;
+    position: relative;
+    padding: 30px;
+    background: #011c3a;
+    box-shadow: 0px 5px 10px 1px #070707;
 `;
 const Title = styled.h1`
-    font-size: 2rem;
+    font-size: 3rem;
     color: #fff;
     text-align: center;
     letter-spacing: 1px;
@@ -60,21 +64,22 @@ const Ul = styled.ul `
 `;
 const Li = styled.li `
     list-style: none;
-    padding: 0 5px;
+    padding: 0 15px;
 `;
 const FirstMenuBlock = styled.div `
     display: flex;
     align-items: center;
-    width: 30%;
+    width: 40%;
+    justify-content: space-between;
 `;
 const UserAccountLoginContainer = styled.div `
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 30%;
+    justify-content: flex-end;
+    width: 20%;
 `;
 const StyledLink = styled(Link) `
-    font-size: 16px;
+    font-size: 1.6rem;
     letter-spacing: .5px;
     color: #fff;
     text-decoration: none;

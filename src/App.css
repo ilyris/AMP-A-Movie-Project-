@@ -17,18 +17,25 @@ h6 {
 html {
     height:100%;
 }
+a {
+    text-decoration: none;
+    transition: all ease-in-out 120ms;
+}
+a:hover,
+a:hover h2 {
+    color: #02cf5b;
+}
 
 body {
     font-size: 10px;
     width: 100%;
-    background: rgb(13, 13, 13);
+    background: #251246;
     background-repeat: no-repeat;
 }
 input::placeholder {
-    color: #000;
+    color: #251246;
 }
 button:hover {
     cursor: pointer;
-    background-color: #ffbc00;
-    color: rgb(0, 0, 0);
+    color: #251246;
 }

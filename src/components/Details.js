@@ -5,7 +5,7 @@ import Navigation from './Navigation';
 
 
 const Details = ({match, location}) =>  { 
-    const {title, overview, release_date ,poster_path, popularity,backdrop_path} = location.state.moviesArray;
+    const {title, overview, release_date ,poster_path, vote_average,backdrop_path} = location.state.moviesArray;
     const posterImageURL = `https://image.tmdb.org/t/p/original${poster_path}`;
     const backDropImage = `https://image.tmdb.org/t/p/original${backdrop_path}`
     return  (
@@ -13,13 +13,15 @@ const Details = ({match, location}) =>  {
             <Navigation/>
             <HeroSection>
                 <BackDropImage src={backDropImage}></BackDropImage>
-                <BackDropOverlay></BackDropOverlay>
-                <PosterImage src={posterImageURL}></PosterImage>
+                <BackDropImageOverlay></BackDropImageOverlay>
+                <PosterContainerDiv>
+                    <PosterImage src={posterImageURL}></PosterImage>
+                    <MovieDetailsParagraphText><Span>Released: </Span> {release_date}</MovieDetailsParagraphText>
+                    <MovieDetailsParagraphText><Span>Rated: </Span> {vote_average} Stars </MovieDetailsParagraphText>
+                </PosterContainerDiv>
                 <InformationContainer>
                     <H2>{title}</H2>
-                    <ReleaseDate><Span>Details: </Span>{overview}</ReleaseDate>
-                    <ReleaseDate><Span>Released: </Span>{release_date}</ReleaseDate>
-                    <ReleaseDate><Span>Rated: </Span>{popularity}</ReleaseDate> 
+                    <MovieDetailsParagraphText><Span>Details: </Span>{overview}</MovieDetailsParagraphText>
                 </InformationContainer>
             </HeroSection>
         </div>
@@ -42,7 +44,7 @@ const BackDropImage = styled.img `
     position: absolute;
     z-index: -1;
 `;
-const BackDropOverlay = styled.div `
+const BackDropImageOverlay = styled.div `
     width: 100%;
     height: 100%;
     position: absolute;
@@ -51,10 +53,16 @@ const BackDropOverlay = styled.div `
 `;
 const PosterImage = styled.img `
     width: 30%;
-    min-width: 640px;
-    height: 80vh;
+    min-width: 500px;
+    height: 60vh;
     max-width: 640px;
+`;
+const PosterContainerDiv = styled.div `
+    display: flex;
+    flex-direction: column;
     margin-left: 200px;
+    width: 40%;
+    justify-content: center;
 `;
 const H2 = styled.h2 `
     font-size: 3.4rem;
@@ -66,14 +74,15 @@ const H2 = styled.h2 `
 const InformationContainer = styled.div`
     height: 80%;
     padding: 0 200px;
+    width: 60%;
 `;
 const Span = styled.span `
     color: #ffbc00;
     font-size: 2rem;
 `;
-const ReleaseDate = styled.p `
+const MovieDetailsParagraphText = styled.p `
     color: #fff;
-    margin: 20px 0;
+    margin: 10px 0;
     font-size: 1.6rem;
     letter-spacing: 1px;
     line-height: 40px;
