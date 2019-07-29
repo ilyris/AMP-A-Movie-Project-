@@ -3,8 +3,9 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Movie = ({ title, moviesArray, image }, props) => {
+  console.log(1234);
   return (
-    <LinkToMoviePage to={{ pathname: `/${moviesArray.title}`,
+    <LinkToMoviePage to={{ pathname: `/movie/${moviesArray.title}`,
     state: {moviesArray}}}>
         <ContentContainer>
         <Image src={image} />

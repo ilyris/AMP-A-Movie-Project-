@@ -1,47 +1,11 @@
-
-import React, {useState} from "react";
+import React from "react";
 import styled from "styled-components";
-import Navigation from './Navigation';
 import Movie from "./Movie";
 
-const Home = () => {
-
-  const api_Key = process.env.REACT_APP_API_KEY;
-  const baseURL = 'https://api.themoviedb.org/3/';
-
-  const [movies, setMovies] = useState([]);
-  const [searchfield, setSearchField] = useState('');
-
-  const fetchApiCall = async () => {
-    const getResponse = await fetch(
-      `${baseURL}search/movie?api_key=${api_Key}&query=${searchfield}`
-    );
-    const data = await getResponse.json();
-    console.log(data.results);
-    setMovies(data.results);
-  };
-
-  const searchChange = event => setSearchField(event.target.value);
-
-  const handleKeyPress = event => {
-    if(event.key === 'Enter') {
-      return fetchApiCall();
-    }
-  }
-
-  const submitUsersRecipe = event => {
-    event.preventDefault();
-    fetchApiCall();
-  };
-
+const Home = ({movies}) => {
 
   return(
     <AppWrapper>
-      <Navigation
-        searchChange={searchChange}
-        submitUsersRecipe={submitUsersRecipe}
-        handleKeyPress={handleKeyPress}
-      />
       <MovieWrapper>
         {movies.map(movies => {
           return (

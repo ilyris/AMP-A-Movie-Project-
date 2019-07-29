@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import {withRouter, Link} from 'react-router-dom';
-import Navigation from './Navigation';
 
 
 const Details = ({match, location}) =>  { 
@@ -10,7 +9,6 @@ const Details = ({match, location}) =>  {
     const backDropImage = `https://image.tmdb.org/t/p/original${backdrop_path}`
     return  (
         <div>
-            <Navigation/>
             <HeroSection>
                 <BackDropImage src={backDropImage}></BackDropImage>
                 <BackDropImageOverlay></BackDropImageOverlay>
