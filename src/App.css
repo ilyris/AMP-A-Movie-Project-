@@ -39,3 +39,7 @@ button:hover {
     cursor: pointer;
     color: #251246;
 }
+form a:hover {
+    color: #000;
+    cursor: pointer;
+}

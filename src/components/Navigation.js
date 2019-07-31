@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
-const Navigation = ({searchChange, submitUsersRecipe, handleKeyPress }) => {
+const Navigation = ({searchChange, handleKeyPress, submitUsersRecipe}) => {
     return(
         <NavigationWrapper>
             <FirstMenuBlock>
