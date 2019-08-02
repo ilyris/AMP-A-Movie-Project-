@@ -38,7 +38,7 @@ const App = () => {
 
   const submitUsersRecipe = event => {
     // event.preventDefault();
-    fetchApiCall();
+    return fetchApiCall();
   };
 
   return (
@@ -51,12 +51,7 @@ const App = () => {
         />
         <Switch>
           {/* Pass in properties to the home component so it can render out the movies when a user searches for a movie. */}
-          <Route exact path ="/search" render={ props => <SearchPage 
-                                                          {...props}
-                                                          movies={movies}
-                                                          searchChange={searchChange}
-                                                          submitUsersRecipe={submitUsersRecipe}
-                                                          handleKeyPress={handleKeyPress}/>} />
+          <Route exact path ="/search" render={ props => <SearchPage {...props} movies={movies}/>} />
           {/*set up the second parameter as the id and the first one as movie since we would navigate to another page,
            it would take up that argument in the URL and render the detail component. */}
           <Route exact path="/movie/:id" component={Details} />
