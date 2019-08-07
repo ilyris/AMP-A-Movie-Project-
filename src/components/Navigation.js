@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
 
-const Navigation = ({searchChange, handleKeyPress, submitUsersRecipe}) => {
+const Navigation = ({searchChange, handleSubmit, handleOnClickSubmit}) => {
     return(
         <NavigationWrapper>
             <FirstMenuBlock>
@@ -24,14 +24,14 @@ const Navigation = ({searchChange, handleKeyPress, submitUsersRecipe}) => {
                 </Li>
             </Ul>
             </FirstMenuBlock>
-
+            
             <SearchBoxWrapper>
             <SearchForm>
-                <InputSearchField type="search" placeholder="Search Movie or Show" onChange={searchChange} onKeyPress={handleKeyPress}></InputSearchField>
-                <ReactRouterLink to='/search' onClick={submitUsersRecipe}>
+                <InputSearchField type="search" placeholder="Search Movie or Show" onChange={searchChange}  ></InputSearchField>
+                <ReactRouterLink to='/search' onClick={handleOnClickSubmit} onKeyPress={handleSubmit}>
+                {/* <S_button></S_button> */}
                     <FontAwesomeIcon icon={faSearch}/>
                 </ReactRouterLink> 
-
             </SearchForm>
 
         </SearchBoxWrapper>
@@ -62,6 +62,9 @@ const Title = styled.h1`
     padding-right: 20px;
 `;
 
+const S_button = styled.button`
+    display: none;
+`;
 const Ul = styled.ul `
     display: flex;
     align-items; center;

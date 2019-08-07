@@ -1,21 +1,8 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import styled from "styled-components";
 import Movie from "./Movie";
 
 export default function SearchPage({movies}) {
-
-  // const [searchpagemovies, setSearchPageMovies] = useState([]);
-  
-  // const api_Key = process.env.REACT_APP_API_KEY;
-  // const baseURL = 'https://api.themoviedb.org/3/';
-
-  // componentWillMount() {
-  //   console.log('I mounted');
-  //   this.props.submitUsersRecipe();
-  // }
-
-    console.log('Search page ran: ');
-
     return(
       <AppWrapper>
         <MovieWrapper>
