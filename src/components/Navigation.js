@@ -26,10 +26,10 @@ const Navigation = ({searchChange, handleSubmit, handleOnClickSubmit}) => {
             </FirstMenuBlock>
             
             <SearchBoxWrapper>
-            <SearchForm>
-                <InputSearchField type="search" placeholder="Search Movie or Show" onChange={searchChange}  ></InputSearchField>
-                <ReactRouterLink to='/search' onClick={handleOnClickSubmit} onKeyPress={handleSubmit}>
-                {/* <S_button></S_button> */}
+            <SearchForm  onKeyPress={handleSubmit}>
+                <InputSearchField type="search" placeholder="Search Movie or Show" onChange={searchChange} ></InputSearchField>
+                <ReactRouterLink to='/search' onClick={handleOnClickSubmit}>
+                    <S_button></S_button>
                     <FontAwesomeIcon icon={faSearch}/>
                 </ReactRouterLink> 
             </SearchForm>
