@@ -1,147 +1,143 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Navigation = ({searchChange, handleSubmit, handleOnClickSubmit}) => {
     return(
-        <NavigationWrapper>
-            <FirstMenuBlock>
-            <Title id="companyName">AMP</Title>
-            <Ul>
-                <Li>
-                    <StyledLink to="/">Home</StyledLink>
-                </Li>
-                <Li>
-                    <StyledLink to="/movies">Movies</StyledLink>
-                </Li>
-                <Li>
-                    <StyledLink to="/shows">TV Shows</StyledLink>
-                </Li>
-                <Li>
-                    <StyledLink to="/highly-rated">Highly Rated</StyledLink>
-                </Li>
-            </Ul>
-            </FirstMenuBlock>
+        <nav style={ navWrapper }>
+            <div style={ farLeftLinkWrapper }>
+            <h1 style={ Title } id="companyName">AMP</h1>
+            <ul style={ mainLinksWrapper }>
+                <li style={ mainListLinks }>
+                    <Link style={ styledReactLink } to="/">Home</Link>
+                </li>
+                <li style={ mainListLinks }>
+                    <Link style={ styledReactLink } to="/movies">Movies</Link>
+                </li>
+                <li style={ mainListLinks }>
+                    <Link style={ styledReactLink } to="/shows">TV Shows</Link>
+                </li>
+                <li style={ mainListLinks }>
+                    <Link style={ styledReactLink } to="/highly-rated">Highly Rated</Link>
+                </li>
+            </ul>
+            </div>
             
-            <SearchBoxWrapper>
-            <SearchForm  onKeyPress={handleSubmit}>
-                <InputSearchField type="search" placeholder="Search Movie or Show" onChange={searchChange} ></InputSearchField>
-                <ReactRouterLink to='/search' onClick={handleOnClickSubmit}>
-                    <S_button></S_button>
+            <div style={ searchBoxWrapper }>
+            <form style={ SearchForm }  onKeyPress={handleSubmit}>
+                <input style={ InputSearchField } type="search" placeholder="Search Movie or Show" onChange={searchChange} ></input>
+                <Link style={ ReactRouterLink }to='/search' onClick={handleOnClickSubmit}>
+                    <button style={hiddenButton}></button>
                     <FontAwesomeIcon icon={faSearch}/>
-                </ReactRouterLink> 
-            </SearchForm>
+                </Link> 
+            </form>
 
-        </SearchBoxWrapper>
-            <UserAccountLoginContainer>
-                <StyledLink to="/user"><FontAwesomeIcon icon={faUser}/></StyledLink>
-            </UserAccountLoginContainer>
-        </NavigationWrapper>
+        </div>
+            <div style={UserAccountLoginContainer}>
+                <Link style={ styledReactLink } to="/user"><FontAwesomeIcon icon={faUser}/></Link>
+            </div>
+        </nav>
     );
 }
-
-const NavigationWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-evenly;
-    top: 0;
-    width: 100%;
-    position: relative;
-    padding: 30px;
-    background: #011c3a;
-    box-shadow: 0px 5px 10px 1px #070707;
-`;
-const Title = styled.h1`
-    font-size: 3rem;
-    color: #fff;
-    text-align: center;
-    letter-spacing: 1px;
-    padding-right: 20px;
-`;
-
-const S_button = styled.button`
-    display: none;
-`;
-const Ul = styled.ul `
-    display: flex;
-    align-items; center;
-`;
-const Li = styled.li `
-    list-style: none;
-    padding: 0 15px;
-`;
-const FirstMenuBlock = styled.div `
-    display: flex;
-    align-items: center;
-    width: 40%;
-    justify-content: space-between;
-`;
-const UserAccountLoginContainer = styled.div `
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 20%;
-`;
-const StyledLink = styled(Link) `
-    font-size: 1.6rem;
-    letter-spacing: .5px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 400;
-`;
-const SearchBoxWrapper = styled.div `
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40%;
-`;
-const SearchForm = styled.form `
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 50px;
-    width: 50%;
-    margin: 0 auto;
-`;
-const InputSearchField = styled.input `
-    font-size: 1.4rem;
-    border: none;
-    border-bottom-left-radius: 25px;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-    outline: none;
-    background-color: rgb(255,255,255);
-    border-bottom: 3px solid #fff;
-    color: #000;
-    padding-left: 20px;
-    height: 100%;
-    width: 100%;
-`;
-const ReactRouterLink = styled(Link)`
-    color: #fff;
-    text-align: center;
-    letter-spacing: 2px;
-    background-color: #02cf5b;
-    border: none;
-    outline: none;
-    border-radius: 10px;
-    transition: all ease-in-out 300ms;
-    margin-left: 0;
-    right: 50px;
-    font-size: 2rem;
-    height: 100%;
-    position: relative;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-    padding: 0 20px 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`;
+const navWrapper = {
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    top: '0',
+    width: '100%',
+    position: 'relative',
+    padding: '30px',
+    background: '#011c3a',
+    boxShadow: '0px 5px 10px 1px #070707',
+}
+const Title = {
+    fontSize: '3rem',
+    color: '#fff',
+    textAlign: 'center',
+    letterSpacing: '1px',
+    paddingRight: '20px',
+}
+const hiddenButton ={
+    display: 'none',
+}
+const mainLinksWrapper = {
+    display: 'flex',
+    alignItems: 'center',
+}
+const mainListLinks = {
+    listStyle: 'none',
+    padding: '0 15px',
+}
+const farLeftLinkWrapper = {
+    display: 'flex',
+    alignItems: 'center',
+    width: '40%',
+    justifyContent: 'space-between',
+}
+const UserAccountLoginContainer = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    width: '20%',
+}
+const styledReactLink = {
+    fontSize: '1.6rem',
+    letterSpacing: '.5px',
+    color: '#fff',
+    textDecoration: 'none',
+}
+const searchBoxWrapper = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '40%',
+}
+const SearchForm = { 
+    justifyContent: 'center',
+    alignItems: 'center',
+    display: 'flex',
+    height: '50px',
+    width: '50%',
+    margin: '0 auto',
+}
+const InputSearchField = {
+    fontSize: '1.4rem',
+    border: 'none',
+    borderBottomLeftRadius: '25px',
+    borderTopLeftRadius: '25px',
+    borderTopRightRadius: '25px',
+    borderBottomRightRadius: '25px',
+    outline: 'none',
+    backgroundColor: 'rgb(255,255,255)',
+    borderBottom: '3px solid #fff',
+    color: '#000',
+    paddingLeft: '20px',
+    height: '100%',
+    width: '100%',
+}
+const ReactRouterLink = {
+    color: '#fff',
+    textAlign: 'center',
+    letterSpacing: '2px',
+    backgroundColor: '#02cf5b',
+    border: 'none',
+    outline: 'none',
+    borderRadius: '10px',
+    transition: 'all ease-in-out 300ms',
+    marginLeft: '0',
+    right: '50px',
+    fontSize: '2rem',
+    height: '100%',
+    position: 'relative',
+    borderTopLeftRadius: '0',
+    borderBottomLeftRadius: '0',
+    borderTopRightRadius: '25px',
+    borderBottomRightRadius: '25px',
+    padding: '0 20px 0 20px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+}
 export default Navigation;

@@ -28,14 +28,12 @@ const App = () => {
   const searchChange = event => setSearchField(event.target.value);
 
   const handleSubmit = event => {
-    console.log('this is the event key: ' + event.key);
     if(event.key === 'Enter') {
       return fetchApiCall();
     }
   }
 
   const handleOnClickSubmit = (event) => {
-    // event.preventDefault();
     return fetchApiCall();
   };
 
