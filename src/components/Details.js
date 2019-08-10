@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import {withRouter, Link} from 'react-router-dom';
 
 const Details = ({match, location}) =>  { 
