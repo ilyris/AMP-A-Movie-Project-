@@ -1,42 +1,56 @@
 import React, {useState} from "react";
-import "./App.css";
-import { Link } from 'react-router-dom';
+import "../App.css";
+import TopRatedTvShow from './TopRatedTvShow';
 
 
-const Home = ({movies}) => {
+const Home = () => {
+  const api_Key = process.env.REACT_APP_API_KEY;
+  const baseURL = 'https://api.themoviedb.org/3/';
+
+  const [topRatedTvShows, setTopRatedTvShows] = useState([]);
+
+  const fetchApiCall = async () => {
+    const getResponse = await fetch(`${baseURL}tv/top_rated?api_key=${api_Key}&language=en-US&page=1`);
+    const data = await getResponse.json();
+    console.log(data.results);
+    setTopRatedTvShows(data.results);
+  };
+
+  fetchApiCall();
+  console.log('Im rendering');
   return(
-    <AppWrapper>
-      <MovieWrapper>
-        {movies.map(movies => {
+    <div style={AppWrapper}>
+      <div style={MovieWrapper}>
+        {topRatedTvShows.map(topRatedTvShows => {
           return (
-            <Movie
-              key={movies.id}
-              image={`https://image.tmdb.org/t/p/w185${movies.poster_path}`}
-              title={movies.title}
-              moviesArray={movies}
+            <TopRatedTvShow
+              key={topRatedTvShows.id}
+              image={`https://image.tmdb.org/t/p/w185${topRatedTvShows.poster_path}`}
+              title={topRatedTvShows.title}
+              topRatedTvShows={topRatedTvShows}
             />
           );
         })}
-      </MovieWrapper>
-    </AppWrapper>
+      </div>
+    </div>
   )
 }
 export default Home;
 
 
 
-const AppWrapper = styled.div`
-  width: 100%;
-  box-sizing: border-box;
-  height: 100%;
-`;
+const AppWrapper = {
+  width: '100%',
+  boxSizing: 'border-box',
+  height: '100%',
+}
 
 
-const MovieWrapper = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 40px;
-  padding: 30px 0;
-`;
+const MovieWrapper = {
+  display: 'flex',
+  flexFlow: 'row wrap',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  marginTop: '40px',
+  padding: '30px 0',
+}

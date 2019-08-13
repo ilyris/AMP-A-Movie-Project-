@@ -1,5 +1,5 @@
 import React from "react";
-import {withRouter, Link} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 const Details = ({match, location}) =>  { 
     const {title, overview, release_date ,poster_path, vote_average,backdrop_path} = location.state.moviesArray;
@@ -8,10 +8,10 @@ const Details = ({match, location}) =>  {
     return  (
         <div>
             <div style={ HeroSection }>
-                <img style={ backgroundPosterImage } src={backDropImage}></img>
+                <img style={ backgroundPosterImage } alt="background poster of movie" src={backDropImage}></img>
                 <div style={ BackDropImageOverlay }></div>
                 <div style={ PosterContainerDiv }>
-                    <img style={PosterImage} src={posterImageURL}></img>
+                    <img style={PosterImage} alt="movie cover"src={posterImageURL}></img>
                     <p style={ MovieDetailsParagraphText }><span style={styledSpan}>Released: </span> {release_date}</p>
                     <p style={ MovieDetailsParagraphText }><span style={styledSpan}>Rated: </span> {vote_average} Stars </p>
                 </div>

@@ -10,7 +10,7 @@ const Navigation = ({searchChange, handleSubmit, handleOnClickSubmit}) => {
             <h1 style={ Title } id="companyName">AMP</h1>
             <ul style={ mainLinksWrapper }>
                 <li style={ mainListLinks }>
-                    <Link style={ styledReactLink } to="/">Home</Link>
+                    <Link style={ styledReactLink } to="/home">Home</Link>
                 </li>
                 <li style={ mainListLinks }>
                     <Link style={ styledReactLink } to="/movies">Movies</Link>
