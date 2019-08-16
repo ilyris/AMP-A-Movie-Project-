@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const TopRatedTvShow = ({ title, topRatedTvShows, image }, props) => {
+const TopRatedTvShow = ({ title, topRatedTvShows, image }) => {
   return (
     <Link style ={ LinkToMoviePage }to={{ pathname: `/show/${topRatedTvShows.title}`,
     state: {topRatedTvShows}}}>
@@ -33,6 +33,7 @@ const ContentContainer = {
   alignItems: 'center',
   flexDirection: 'column',
   width: '100%',
+  width: '200px',
 }
 
 
@@ -41,9 +42,9 @@ const LinkToMoviePage = {
   justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'column',
-  maxWidth: '300px',
+  // maxWidth: '300px',
   padding: '20px',
-  width: '25%',
+  width: '100%',
 }
 
 

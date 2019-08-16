@@ -35,4 +35,3 @@ const MovieWrapper = {
   marginTop: '40px',
   padding: '30px 0',
 }
-
