@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Movie = ({ title, moviesArray, image }) => {
+const Movie = ({ title, movies, image }) => {
   return (
     <Link style ={ LinkToMoviePage }to={{ pathname: `/movie/${title}`,
-    state: {moviesArray}}}>
+    state: {movies}}}>
         <div style={ ContentContainer }>
         <img style={movieImage} alt="Movie poster" src={image} />
         <h2 style={ TitleHeading }>{title}</h2>

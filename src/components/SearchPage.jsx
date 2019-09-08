@@ -11,7 +11,7 @@ export default function SearchPage({movies}) {
                 key={movies.id}
                 image={`https://image.tmdb.org/t/p/w185${movies.poster_path}`}
                 title={movies.title}
-                moviesArray={movies}
+                movies={movies}
               />
             );
           })}

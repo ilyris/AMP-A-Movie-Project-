@@ -6,9 +6,9 @@ import NowPlayingMovieSlider from './NowPlayingMovieSlider';
 
 const Home = () => {
 
-  const [topRatedTvShows, setTopRatedTvShows] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
-  console.log(nowPlayingMovies);
+
 
   useEffect( () => {
     const api_Key = process.env.REACT_APP_API_KEY;
@@ -18,7 +18,7 @@ const Home = () => {
       
       const getResponse = await fetch(`${baseURL}movie/top_rated?api_key=${api_Key}&language=en-US&page=1`);
       const data = await getResponse.json();
-      setTopRatedTvShows(data.results);
+      setMovies(data.results);
 
       const getNowPlayingResponse = await fetch(`${baseURL}movie/now_playing?api_key=${api_Key}&language=en-US&page=1`);
       const nowPlayingData = await getNowPlayingResponse.json();
@@ -32,8 +32,8 @@ const Home = () => {
   return(
     <div style={AppWrapper}>
       <div style={MovieWrapper}>
-      <TvShowSlider2 topRatedTvShows={topRatedTvShows} />
-      <NowPlayingMovieSlider topRatedTvShows={nowPlayingMovies} />
+      <TvShowSlider2 movies={movies} />
+      <NowPlayingMovieSlider nowPlayingMovies={nowPlayingMovies} />
       </div>
     </div>
   )

@@ -54,8 +54,6 @@ const App = () => {
         {/* <Route exact path ="/movies" component={Movies} /> */}
         </Switch>
     </div>
-
-
     </Router>
 
   );

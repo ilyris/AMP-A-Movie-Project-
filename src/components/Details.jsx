@@ -2,7 +2,8 @@ import React from "react";
 import {withRouter} from 'react-router-dom';
 
 const Details = ({match, location}) =>  { 
-    const {title, overview, release_date ,poster_path, vote_average,backdrop_path} = location.state.moviesArray;
+    console.log(location);
+    const {title, overview, release_date ,poster_path, vote_average,backdrop_path} = location.state.movies;
     const posterImageURL = `https://image.tmdb.org/t/p/original${poster_path}`;
     const backDropImage = `https://image.tmdb.org/t/p/original${backdrop_path}`
     return  (

@@ -1,10 +1,10 @@
 import React from 'react';
-import TopRatedTvShow from "./SliderMovies";
+import SliderMovie from "./SliderMovies";
 import Swiper from 'react-id-swiper';
 import "../App.css";
 import 'react-id-swiper/lib/styles/css/swiper.css';
 
-const TvShowSlider2 = ({topRatedTvShows}) => {
+const TvShowSlider2 = ({movies}) => {
 const params = {
     init: true,
     loop: true,
@@ -51,13 +51,13 @@ const params = {
         <div style={TvShowSlideContainer}>
           <h2 style={SliderTitle}>Top Rated TV Shows</h2>
           <Swiper {...params}>
-          {topRatedTvShows.map(topRatedTvShows => {
+          {movies.map(movies => {
               return (
-                <TopRatedTvShow
-                  key={topRatedTvShows.id}
-                  image={`https://image.tmdb.org/t/p/w185${topRatedTvShows.poster_path}`}
-                  title={topRatedTvShows.name}
-                  topRatedTvShows={topRatedTvShows}
+                <SliderMovie
+                  key={movies.id}
+                  image={`https://image.tmdb.org/t/p/w185${movies.poster_path}`}
+                  title={movies.name}
+                  movies={movies}
                 />
               );
             })}

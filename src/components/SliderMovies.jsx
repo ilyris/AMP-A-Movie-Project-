@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 
 
 
-const SliderMovies = ({ title, topRatedTvShows, image }) => {
-
+const SliderMovies = ({ title, movies, image }) => {
+console.log(movies);
   return (
-    <Link  className="swiper-slide" style ={ LinkToMoviePage }to={{ pathname: `/movie/${topRatedTvShows.title}`,
-    state: {topRatedTvShows}}}>
+    <Link  className="swiper-slide" style ={ LinkToMoviePage }to={{ pathname: `/movie/${movies.title}`,
+    state: {movies}}}>
         <div style={ ContentContainer }>
         <img style={movieImage} alt="Tv Show poster" src={image} />
-        <h2 style={ TitleHeading }>{title}</h2>
+        <h2 style={ TitleHeading }>{movies.title}</h2>
       </div>
     </Link>
 

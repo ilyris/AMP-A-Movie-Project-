@@ -4,7 +4,7 @@ import Swiper from 'react-id-swiper';
 import "../App.css";
 import 'react-id-swiper/lib/styles/css/swiper.css';
 
-const NowPlayingMovies = ({topRatedTvShows}) => {
+const NowPlayingMovies = ({nowPlayingMovies}) => {
     
 const params = {
     init: true,
@@ -51,13 +51,13 @@ const params = {
         <div style={TvShowSlideContainer}>
           <h2 style={SliderTitle}>Now Playing</h2>
           <Swiper {...params}>
-          {topRatedTvShows.map(topRatedTvShows => {
+          {nowPlayingMovies.map(nowPlayingMovies => {
               return (
                 <SliderMovies
-                  key={topRatedTvShows.id}
-                  image={`https://image.tmdb.org/t/p/w185${topRatedTvShows.poster_path}`}
-                  title={topRatedTvShows.name}
-                  topRatedTvShows={topRatedTvShows}
+                  key={nowPlayingMovies.id}
+                  image={`https://image.tmdb.org/t/p/w185${nowPlayingMovies.poster_path}`}
+                  title={nowPlayingMovies.name}
+                  movies={nowPlayingMovies}
                 />
               );
             })}
