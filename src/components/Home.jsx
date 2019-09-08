@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import "../App.css";
-import TvShowSlider from './TvShowSlider';
+import TvShowSlider2 from './SlickSlider';
 
 
 const Home = () => {
@@ -25,7 +25,7 @@ const Home = () => {
   return(
     <div style={AppWrapper}>
       <div style={MovieWrapper}>
-      <TvShowSlider topRatedTvShows={topRatedTvShows} />
+      <TvShowSlider2 topRatedTvShows={topRatedTvShows} />
       </div>
     </div>
   )
@@ -42,7 +42,7 @@ const AppWrapper = {
 
 
 const MovieWrapper = {
-  display: 'flex',
+  // display: 'flex',
   flexFlow: 'row wrap',
   alignItems: 'center',
   justifyContent: 'space-between',

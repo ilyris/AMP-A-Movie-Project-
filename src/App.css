@@ -23,7 +23,7 @@ a {
 }
 a:hover,
 a:hover h2 {
-    color: #02cf5b;
+    color: #02cf5b !important;
 }
 
 body {

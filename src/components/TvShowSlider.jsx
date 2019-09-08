@@ -1,12 +1,14 @@
-import React from 'react';
+import React from "react";
 import "../App.css";
-import TopRatedTvShow from './TopRatedTvShow';
+import TopRatedTvShow from "./TopRatedTvShow";
 
-const TvShowSlider = ({topRatedTvShows}) => {
-    return(
+
+const TvShowSlider = ({ topRatedTvShows }) => {
+
+  return (
     <div style={TvShowSlideContainer}>
-        <div style={TvShowContainer}>
-        {topRatedTvShows.map(topRatedTvShows => {
+      <div style={TvShowContainer}>
+          {topRatedTvShows.map(topRatedTvShows => {
             return (
               <TopRatedTvShow
                 key={topRatedTvShows.id}
@@ -16,21 +18,21 @@ const TvShowSlider = ({topRatedTvShows}) => {
               />
             );
           })}
-          </div>
-          </div>
-    );
-}
+      </div>
+    </div>
+  );
+};
 export default TvShowSlider;
 
 const TvShowSlideContainer = {
-    display: 'flex',
-    flexDirection: 'row',
-    width: '100%',
-    overflowX: 'scroll',
-}
+  display: "flex",
+  flexDirection: "row",
+  width: "100%",
+  overflowX: "scroll"
+};
 const TvShowContainer = {
-    display: 'flex',
-    overflow: 'hidden',
-    height: '400px',
-    flexDirection: 'row',
-}
+  display: "flex",
+  overflow: "hidden",
+  height: "400px",
+  flexDirection: "row"
+};

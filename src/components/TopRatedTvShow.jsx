@@ -1,15 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+
+
 const TopRatedTvShow = ({ title, topRatedTvShows, image }) => {
+
   return (
-    <Link style ={ LinkToMoviePage }to={{ pathname: `/show/${topRatedTvShows.title}`,
+    <Link  className="swiper-slide" style ={ LinkToMoviePage }to={{ pathname: `/show/${topRatedTvShows.title}`,
     state: {topRatedTvShows}}}>
         <div style={ ContentContainer }>
         <img style={movieImage} alt="Tv Show poster" src={image} />
         <h2 style={ TitleHeading }>{title}</h2>
       </div>
     </Link>
+
   );
 };
 
@@ -43,7 +47,7 @@ const LinkToMoviePage = {
   alignItems: 'center',
   flexDirection: 'column',
   // maxWidth: '300px',
-  padding: '20px',
+  padding: '10px',
   width: '100%',
 }
 
