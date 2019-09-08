@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 
 
-const TopRatedTvShow = ({ title, topRatedTvShows, image }) => {
+const SliderMovies = ({ title, topRatedTvShows, image }) => {
 
   return (
-    <Link  className="swiper-slide" style ={ LinkToMoviePage }to={{ pathname: `/show/${topRatedTvShows.title}`,
+    <Link  className="swiper-slide" style ={ LinkToMoviePage }to={{ pathname: `/movie/${topRatedTvShows.title}`,
     state: {topRatedTvShows}}}>
         <div style={ ContentContainer }>
         <img style={movieImage} alt="Tv Show poster" src={image} />
@@ -28,7 +28,7 @@ const TitleHeading = {
 
 
 const movieImage = {
-  width: '100%',
+  width: '85%',
 }
 
 const ContentContainer = {
@@ -46,11 +46,9 @@ const LinkToMoviePage = {
   justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'column',
-  // maxWidth: '300px',
-  padding: '10px',
   width: '100%',
 }
 
 
 
-export default TopRatedTvShow;
+export default SliderMovies;

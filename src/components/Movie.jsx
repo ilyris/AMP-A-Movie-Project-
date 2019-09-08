@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Movie = ({ title, moviesArray, image }, props) => {
+const Movie = ({ title, moviesArray, image }) => {
   return (
     <Link style ={ LinkToMoviePage }to={{ pathname: `/movie/${title}`,
     state: {moviesArray}}}>

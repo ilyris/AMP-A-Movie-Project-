@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-import TopRatedTvShow from "./TopRatedTvShow";
+import SliderMovies from "./SliderMovies";
 
 
 const TvShowSlider = ({ topRatedTvShows }) => {
@@ -10,7 +10,7 @@ const TvShowSlider = ({ topRatedTvShows }) => {
       <div style={TvShowContainer}>
           {topRatedTvShows.map(topRatedTvShows => {
             return (
-              <TopRatedTvShow
+              <SliderMovies
                 key={topRatedTvShows.id}
                 image={`https://image.tmdb.org/t/p/w185${topRatedTvShows.poster_path}`}
                 title={topRatedTvShows.title}
