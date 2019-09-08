@@ -1,11 +1,10 @@
 import React from "react";
-import styled from "styled-components";
 import Movie from "./Movie";
 
 export default function SearchPage({movies}) {
     return(
-      <AppWrapper>
-        <MovieWrapper>
+      <div style={ AppWrapper }>
+        <div style={ MovieWrapper }>
           {movies.map(movies => {
             return (
               <Movie
@@ -16,25 +15,23 @@ export default function SearchPage({movies}) {
               />
             );
           })}
-        </MovieWrapper>
-      </AppWrapper>
+        </div>
+      </div>
     )
   }
 
 
 
-const AppWrapper = styled.div`
-  width: 100%;
-  box-sizing: border-box;
-  height: 100%;
-`;
-
-
-const MovieWrapper = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 40px;
-  padding: 30px 0;
-`;
+const AppWrapper = {
+  width: '100%',
+  boxSizing: 'border-box',
+  height: '100%',
+}
+const MovieWrapper = {
+  display: 'flex',
+  flexFlow: 'row wrap',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  marginTop: '40px',
+  padding: '30px 0',
+}

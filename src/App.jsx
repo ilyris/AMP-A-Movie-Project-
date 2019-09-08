@@ -2,12 +2,10 @@ import React, {useState} from "react";
 import "./App.css";
 import Details from './components/Details';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Home from './components/Home';
 import TvShowPage from "./components/TvShowPage";
 import Navigation from './components/Navigation';
 import SearchPage from './components/SearchPage';
-
-
-
 
 
 const App = () => {
@@ -28,14 +26,12 @@ const App = () => {
   const searchChange = event => setSearchField(event.target.value);
 
   const handleSubmit = event => {
-    console.log('this is the event key: ' + event.key);
     if(event.key === 'Enter') {
       return fetchApiCall();
     }
   }
 
-  const handleOnClickSubmit = (event) => {
-    // event.preventDefault();
+  const handleOnClickSubmit = event => {
     return fetchApiCall();
   };
 
@@ -48,6 +44,7 @@ const App = () => {
           handleSubmit={handleSubmit}
         />
         <Switch>
+          <Route exact path="/" component={Home} />
           {/* Pass in properties to the SearchPage component so it can render out the movies when a user searches for a movie. */}
           <Route exact path ="/search" render={ props => <SearchPage {...props} movies={movies}/>} />
           {/* set up the second parameter as the id and the first one as movie since we would navigate to another page,
