@@ -3,7 +3,7 @@ import {withRouter} from 'react-router-dom';
 
 const Details = ({match, location}) =>  { 
     console.log(location);
-    const {title, overview, release_date ,poster_path, vote_average,backdrop_path} = location.state.movies;
+    const { title, overview, release_date ,poster_path, vote_average,backdrop_path} = location.state.movies;
     const posterImageURL = `https://image.tmdb.org/t/p/original${poster_path}`;
     const backDropImage = `https://image.tmdb.org/t/p/original${backdrop_path}`
     return  (
@@ -17,7 +17,7 @@ const Details = ({match, location}) =>  {
                     <p style={ MovieDetailsParagraphText }><span style={styledSpan}>Rated: </span> {vote_average} Stars </p>
                 </div>
                 <div style={ InformationContainer }>
-                    <h2 styled={ styledH2 }>{title}</h2>
+                    <h2 style={ styledH2 }>{title}</h2>
                     <p style={ MovieDetailsParagraphText }><span style={styledSpan}>Details: </span>{overview}</p>
                 </div>
             </div>

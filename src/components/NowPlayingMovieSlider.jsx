@@ -19,28 +19,28 @@ const params = {
     breakpoints: {
       1600: {
         slidesPerView: 7,
-        spaceBetween: 40
+        spaceBetween: 20
       },
       1400: {
-        slidesPerView: 6,
-        spaceBetween: 40
+        slidesPerView: 5,
+        spaceBetween: 10
       },
       1200: {
         slidesPerView: 5,
-        spaceBetween: 40
-      },
-      1024: {
-        slidesPerView: 4,
-        spaceBetween: 40
-      },
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 30
-      },
-      500: {
-        slidesPerView: 2,
         spaceBetween: 20
       },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 20
+      },
+      // 768: {
+      //   slidesPerView: 3,
+      //   spaceBetween: 30
+      // },
+      // 500: {
+      //   slidesPerView: 2,
+      //   spaceBetween: 20
+      // },
       320: {
         slidesPerView: 1,
         spaceBetween: 10
@@ -69,12 +69,16 @@ const params = {
 
   const TvShowSlideContainer = {
     width: "100%",
-    padding: '0 20px',
+    padding: '20px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexFlow: 'row wrap',
   };
 
   const SliderTitle = {
     fontSize: '40px',
     color: '#fff',
     paddingBottom: '10px',
-
+    textAlign: 'center',
   }

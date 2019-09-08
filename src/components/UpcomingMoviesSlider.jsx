@@ -1,10 +1,11 @@
 import React from 'react';
-import SliderMovie from "./SliderMovies";
+import SliderMovies from "./SliderMovies";
 import Swiper from 'react-id-swiper';
 import "../App.css";
 import 'react-id-swiper/lib/styles/css/swiper.css';
 
-const TvShowSlider2 = ({movies}) => {
+const NowPlayingMovies = ({upcomingMovies}) => {
+    
 const params = {
     init: true,
     loop: true,
@@ -16,6 +17,10 @@ const params = {
       prevEl: '.swiper-button-prev',
     },
     breakpoints: {
+      1600: {
+        slidesPerView: 7,
+        spaceBetween: 20
+      },
       1400: {
         slidesPerView: 5,
         spaceBetween: 10
@@ -28,32 +33,31 @@ const params = {
         slidesPerView: 3,
         spaceBetween: 20
       },
-      // 768: {
-      //   slidesPerView: 3,
-      //   spaceBetween: 30
-      // },
-      // 500: {
-      //   slidesPerView: 2,
-      //   spaceBetween: 20
-      // },
+    //   768: {
+    //     slidesPerView: 3,
+    //     spaceBetween: 30
+    //   },
+    //   500: {
+    //     slidesPerView: 2,
+    //     spaceBetween: 20
+    //   },
       320: {
         slidesPerView: 1,
         spaceBetween: 10
       }
     }
   }
-
       return (
         <div style={TvShowSlideContainer}>
-          <h2 style={SliderTitle}>Top Rated</h2>
+          <h2 style={SliderTitle}>Upcoming</h2>
           <Swiper {...params}>
-          {movies.map(movies => {
+          {upcomingMovies.map(upcomingMovies => {
               return (
-                <SliderMovie
-                  key={movies.id}
-                  image={`https://image.tmdb.org/t/p/w185${movies.poster_path}`}
-                  title={movies.name}
-                  movies={movies}
+                <SliderMovies
+                  key={upcomingMovies.id}
+                  image={`https://image.tmdb.org/t/p/w185${upcomingMovies.poster_path}`}
+                  title={upcomingMovies.name}
+                  movies={upcomingMovies}
                 />
               );
             })}
@@ -61,7 +65,7 @@ const params = {
         </div>
       );
   };
-  export default TvShowSlider2;
+  export default NowPlayingMovies;
 
   const TvShowSlideContainer = {
     width: '100%',

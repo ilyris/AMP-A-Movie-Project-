@@ -4,13 +4,22 @@ import { Link } from "react-router-dom";
 
 
 const SliderMovies = ({ title, movies, image }) => {
-console.log(movies);
+  const addAdditionalSwiperButtonClasses = () => {
+    const swiperButtonsNext = document.querySelectorAll('.swiper-button-next');
+    const swiperButtonsPrev = document.querySelectorAll('.swiper-button-prev');
+    swiperButtonsNext.forEach( buttons => buttons.classList.add('swiper-buttons-added-class'));
+    swiperButtonsPrev.forEach( buttons => buttons.classList.add('swiper-buttons-added-class'));
+  }
+  addAdditionalSwiperButtonClasses();
+
+
   return (
-    <Link  className="swiper-slide" style ={ LinkToMoviePage }to={{ pathname: `/movie/${movies.title}`,
-    state: {movies}}}>
-        <div style={ ContentContainer }>
+    <Link  className="swiper-slide" style ={ LinkToMoviePage }to={{ pathname: `/movie/${movies.title}`, state: {movies}}}>
+        <div style={ContentContainer}>
+
         <img style={movieImage} alt="Tv Show poster" src={image} />
-        <h2 style={ TitleHeading }>{movies.title}</h2>
+                <h2 style={TitleHeading}>{movies.title}</h2>
+
       </div>
     </Link>
 
@@ -18,10 +27,11 @@ console.log(movies);
 };
 
 const TitleHeading = {
-  fontSize: '1.4rem',
+  fontSize: '1rem',
+  textAlign: 'center',
   letterSpacing: '1px',
   color: '#fff',
-  padding: '10px 0',
+  padding: '10px',
   textTransform: 'capitalize',
   width: '100%',
 }
@@ -29,6 +39,7 @@ const TitleHeading = {
 
 const movieImage = {
   width: '85%',
+  borderRadius: '20px',
 }
 
 const ContentContainer = {
@@ -37,7 +48,6 @@ const ContentContainer = {
   alignItems: 'center',
   flexDirection: 'column',
   width: '100%',
-  width: '200px',
 }
 
 
@@ -47,6 +57,7 @@ const LinkToMoviePage = {
   alignItems: 'center',
   flexDirection: 'column',
   width: '100%',
+  height: '400px',
 }
 
 

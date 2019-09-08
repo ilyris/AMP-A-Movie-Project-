@@ -43,3 +43,19 @@ form a:hover {
     color: #000;
     cursor: pointer;
 }
+.swiper-wrapper {
+    display: flex;
+    align-items: center;
+}
+.swiper-button-next.swiper-buttons-added-class,
+.swiper-button-prev.swiper-buttons-added-class {
+    background-color: rgb(37, 18, 70);
+    padding: 30px;
+    top: 45%;
+}
+.swiper-button-next.swiper-buttons-added-class {
+    right: -15px;
+}
+.swiper-button-prev.swiper-buttons-added-class {
+    left: -15px;
+}
