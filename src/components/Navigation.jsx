@@ -27,7 +27,7 @@ const Navigation = ({searchChange, handleSubmit, handleOnClickSubmit}) => {
             <div style={ searchBoxWrapper }>
             <form style={ SearchForm }  onKeyPress={handleSubmit}>
                 <input style={ InputSearchField } type="search" placeholder="Search Movie or Show" onChange={searchChange} ></input>
-                <Link style={ ReactRouterLink }to='/search' onClick={handleOnClickSubmit}>
+                <Link style={ ReactRouterLink } to='/search' onClick={handleOnClickSubmit}>
                     <button style={hiddenButton}></button>
                     <FontAwesomeIcon icon={faSearch}/>
                 </Link> 
@@ -40,6 +40,7 @@ const Navigation = ({searchChange, handleSubmit, handleOnClickSubmit}) => {
         </nav>
     );
 }
+
 const navWrapper = {
     display: 'flex',
     alignItems: 'center',
