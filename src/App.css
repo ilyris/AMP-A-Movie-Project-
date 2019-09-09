@@ -59,3 +59,8 @@ form a:hover {
 .swiper-button-prev.swiper-buttons-added-class {
     left: -15px;
 }
+@media screen and (max-width: 600px) {
+    .mainUl {
+        display: none !important;
+    }
+  }

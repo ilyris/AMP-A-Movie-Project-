@@ -37,14 +37,14 @@ const params = {
     //     slidesPerView: 3,
     //     spaceBetween: 30
     //   },
-    //   500: {
-    //     slidesPerView: 2,
-    //     spaceBetween: 20
-    //   },
-      600: {
-        slidesPerView: 2,
-        spaceBetween: 10
-      }
+    860: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    600: {
+      slidesPerView: 1,
+      spaceBetween: 10
+    }
     }
   }
       return (

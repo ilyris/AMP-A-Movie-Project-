@@ -8,7 +8,7 @@ const Navigation = ({searchChange, handleSubmit, handleOnClickSubmit}) => {
         <nav style={ navWrapper }>
             <div style={ farLeftLinkWrapper }>
             <h1 style={ Title } id="companyName">AMP</h1>
-            <ul style={ mainLinksWrapper }>
+            <ul className="mainUl" style={ mainLinksWrapper }>
                 <li style={ mainListLinks }>
                     <Link style={ styledReactLink } to="/">Home</Link>
                 </li>
