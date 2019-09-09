@@ -28,17 +28,9 @@ const params = {
         slidesPerView: 3,
         spaceBetween: 20
       },
-      // 768: {
-      //   slidesPerView: 3,
-      //   spaceBetween: 30
-      // },
-      // 500: {
-      //   slidesPerView: 2,
-      //   spaceBetween: 20
-      // },
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 10
+      600: {
+        slidesPerView: 2,
+        spaceBetween: 0
       }
     }
   }

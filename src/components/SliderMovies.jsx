@@ -57,7 +57,7 @@ const LinkToMoviePage = {
   alignItems: 'center',
   flexDirection: 'column',
   width: '100%',
-  height: '400px',
+  // height: '400px',
 }
 
 
