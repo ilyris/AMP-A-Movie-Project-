@@ -88,16 +88,17 @@
 
 .iconLinks {
     color: #fff;
-    font-size: 14px;
-    width: 20%;
+    font-size: 20px;
+    width: 25%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 10px 0;
 }
 
-.iconLinks i {
-    font-size: 20px;
+.iconLinks svg {
+    font-size: 30px;
 }
 
 #hamburgerMenuContainer {

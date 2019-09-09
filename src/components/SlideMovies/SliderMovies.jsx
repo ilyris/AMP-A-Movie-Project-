@@ -18,7 +18,7 @@ const SliderMovies = ({ title, movies, image }) => {
 
   return (
     <Link
-      className="swiper-slide linkToMoviePage" to={{ pathname: `/movie/${movies.title}`, state: { movies } }}>
+      className="swiper-slide linkToMoviePage sliderMovie" to={{ pathname: `/movie/${movies.title}`, state: { movies } }}>
       <div className="contentContainer">
         <img className="movieImage" alt="Tv Show poster" src={image} />
         <h2 className="titleHeading">{movies.title}</h2>
