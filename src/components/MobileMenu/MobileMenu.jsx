@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faHome, faCompass, faStar } from "@fortawesome/free-solid-svg-icons";
 
+import "./MobileMenu.css";
+
 const MobileMenu = () => {
   return (
     <div className="hamburgerWrapper">

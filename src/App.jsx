@@ -3,11 +3,10 @@ import "./App.css";
 import Details from './components/DetailsPage/Details';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-import Home from './components/Home';
-import TvShowPage from "./components/TvShowPage";
-import Navigation from './components/Navigation';
-import MobileMenu from './components/MobileMenu';
-import SearchPage from './components/SearchPage';
+import Home from './components/HomePage/Home';
+import Navigation from './components/Navigation/Navigation';
+import MobileMenu from './components/MobileMenu/MobileMenu';
+import SearchPage from './components/SearchPage/SearchPage';
 
 
 const App = () => {
@@ -53,7 +52,6 @@ const App = () => {
           {/* set up the second parameter as the id and the first one as movie since we would navigate to another page,
            it would take up that argument in the URL and render the detail component. */}
           <Route exact path="/movie/:id" component={Details} />
-          <Route exact path ="/shows" component={TvShowPage} />
         {/* <Route exact path ="/movies" component={Movies} /> */}
         </Switch>
     </div>

@@ -1,0 +1,15 @@
+.sliderContainer {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+  }
+
+.sliderTitle {
+    font-size: 40px;
+    color: #fff;
+    padding-bottom: 10px;
+    text-align: center;
+}

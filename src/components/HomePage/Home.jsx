@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from "react";
-import "../App.css";
-import TvShowSlider2 from './SlickSlider';
-import NowPlayingMovieSlider from './NowPlayingMovieSlider';
-import UpcomingMoviesSlider from './UpcomingMoviesSlider';
+import "../../App.css";
+import "./HomePage.css";
+import TvShowSlider2 from '../MovieSliders/SlickSlider';
+import NowPlayingMovieSlider from '../MovieSliders/NowPlayingMovieSlider';
+import UpcomingMoviesSlider from '../MovieSliders/UpcomingMoviesSlider';
 
 
 const Home = () => {
@@ -34,8 +35,8 @@ const Home = () => {
   },[]);
 
   return(
-    <div style={AppWrapper}>
-      <div style={MovieWrapper}>
+    <div className="appWrapper">
+      <div className="movieWrapper">
         <TvShowSlider2 movies={movies} />
         <NowPlayingMovieSlider nowPlayingMovies={nowPlayingMovies} />
         <UpcomingMoviesSlider upcomingMovies={upcomingMovies}/>
@@ -44,23 +45,3 @@ const Home = () => {
   )
 }
 export default Home;
-
-
-
-const AppWrapper = {
-  width: '100%',
-  boxSizing: 'border-box',
-  height: '100%',
-}
-
-
-const MovieWrapper = {
-  display: 'flex',
-  flexFlow: 'row wrap',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  marginTop: '40px',
-  padding: '30px 0',
-  width: '80%',
-  margin: '0 auto',
-}

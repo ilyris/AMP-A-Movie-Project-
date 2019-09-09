@@ -1,10 +1,11 @@
 import React from "react";
-import Movie from "./Movie";
+import Movie from "../Movies/Movie";
+import "./SearchPage.css";
 
 export default function SearchPage({movies}) {
     return(
-      <div style={ AppWrapper }>
-        <div style={ MovieWrapper }>
+      <div className="appWrapper">
+        <div className="movieWrapper">
           {movies.map(movies => {
             return (
               <Movie
@@ -19,19 +20,3 @@ export default function SearchPage({movies}) {
       </div>
     )
   }
-
-
-
-const AppWrapper = {
-  width: '100%',
-  boxSizing: 'border-box',
-  height: '100%',
-}
-const MovieWrapper = {
-  display: 'flex',
-  flexFlow: 'row wrap',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  marginTop: '40px',
-  padding: '30px 0',
-}

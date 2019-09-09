@@ -1,0 +1,14 @@
+.appWrapper {
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.movieWrapper {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding: 30px 0;
+}

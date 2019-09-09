@@ -1,10 +1,12 @@
 import React from 'react';
-import SliderMovie from "./SliderMovies";
+import SliderMovies from "../SlideMovies/SliderMovies";
 import Swiper from 'react-id-swiper';
-import "../App.css";
+import "../../App.css";
 import 'react-id-swiper/lib/styles/css/swiper.css';
+import "./MovieSlider.css";
 
-const TvShowSlider2 = ({movies}) => {
+const NowPlayingMovies = ({nowPlayingMovies}) => {
+    
 const params = {
     init: true,
     loop: true,
@@ -16,13 +18,17 @@ const params = {
       prevEl: '.swiper-button-prev',
     },
     breakpoints: {
+      1600: {
+        slidesPerView: 7,
+        spaceBetween: 20
+      },
       1400: {
         slidesPerView: 5,
         spaceBetween: 10
       },
       1200: {
         slidesPerView: 5,
-        spaceBetween: 10
+        spaceBetween: 20
       },
       1024: {
         slidesPerView: 3,
@@ -38,18 +44,17 @@ const params = {
       }
     }
   }
-
       return (
-        <div style={TvShowSlideContainer}>
-          <h2 style={SliderTitle}>Top Rated</h2>
+        <div className="sliderContainer">
+          <h2 className="sliderTitle">Now Playing</h2>
           <Swiper {...params}>
-          {movies.map(movies => {
+          {nowPlayingMovies.map(nowPlayingMovies => {
               return (
-                <SliderMovie
-                  key={movies.id}
-                  image={`https://image.tmdb.org/t/p/w185${movies.poster_path}`}
-                  title={movies.name}
-                  movies={movies}
+                <SliderMovies
+                  key={nowPlayingMovies.id}
+                  image={`https://image.tmdb.org/t/p/w185${nowPlayingMovies.poster_path}`}
+                  title={nowPlayingMovies.name}
+                  movies={nowPlayingMovies}
                 />
               );
             })}
@@ -57,20 +62,4 @@ const params = {
         </div>
       );
   };
-  export default TvShowSlider2;
-
-  const TvShowSlideContainer = {
-    width: '100%',
-    padding: '20px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexFlow: 'row wrap',
-  };
-
-  const SliderTitle = {
-    fontSize: '40px',
-    color: '#fff',
-    paddingBottom: '10px',
-    textAlign: 'center',
-  }
+  export default NowPlayingMovies;

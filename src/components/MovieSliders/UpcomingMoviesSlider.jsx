@@ -1,8 +1,9 @@
 import React from 'react';
-import SliderMovies from "./SliderMovies";
+import SliderMovies from "../SlideMovies/SliderMovies";
 import Swiper from 'react-id-swiper';
-import "../App.css";
+import "../../App.css";
 import 'react-id-swiper/lib/styles/css/swiper.css';
+import "./MovieSlider.css";
 
 const NowPlayingMovies = ({upcomingMovies}) => {
     
@@ -48,8 +49,8 @@ const params = {
     }
   }
       return (
-        <div style={TvShowSlideContainer}>
-          <h2 style={SliderTitle}>Upcoming</h2>
+        <div className="sliderContainer">
+          <h2 className="sliderTitle">Upcoming</h2>
           <Swiper {...params}>
           {upcomingMovies.map(upcomingMovies => {
               return (
@@ -66,19 +67,3 @@ const params = {
       );
   };
   export default NowPlayingMovies;
-
-  const TvShowSlideContainer = {
-    width: '100%',
-    padding: '20px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexFlow: 'row wrap',
-  };
-
-  const SliderTitle = {
-    fontSize: '40px',
-    color: '#fff',
-    paddingBottom: '10px',
-    textAlign: 'center',
-  }

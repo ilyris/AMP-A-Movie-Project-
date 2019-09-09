@@ -1,0 +1,33 @@
+
+.titleHeading {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    color: #fff;
+    padding: 10px 0;
+    text-transform: capitalize;
+    width: 100%;
+  }
+  
+  
+.movieImage {
+    width: 100%;
+  }
+.contentContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  
+.linkToMoviePage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 300px;
+    padding: 20px;
+    width: 25%;
+  }
+  
