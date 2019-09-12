@@ -8,6 +8,11 @@
     text-transform: capitalize;
     width: 100%;
   }
+  @media only screen and  (max-width: 860px) {
+    .contentContainer .titleHeading {
+      font-size: 1.4rem;
+    }
+  }
   
   
   .movieImage {

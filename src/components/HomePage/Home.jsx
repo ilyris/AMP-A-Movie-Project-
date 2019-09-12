@@ -14,6 +14,7 @@ const Home = () => {
 
 
   useEffect( () => {
+    
     const api_Key = process.env.REACT_APP_API_KEY;
     const baseURL = 'https://api.themoviedb.org/3/';
 

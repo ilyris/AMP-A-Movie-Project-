@@ -37,6 +37,30 @@
     width: 40%;
     justify-content: space-between;
 }
+@media only screen and  (max-width: 860px) {
+   .navWrapper {
+       flex-flow: row wrap;
+
+   }
+    .farLeftLinkWrapper {
+        width: 100%;
+        justify-content: center;
+    } 
+    .navWrapper .userAccountLoginContainer {
+        display: none;
+    }
+    .navWrapper .searchForm {
+        width: 100%;
+    }
+    .navWrapper .searchBoxWrapper {
+        width: 100%;
+        position: relative;
+        left: 20px;
+    }
+    .navWrapper .title {
+        padding: 0;
+    }
+}
 .userAccountLoginContainer {
     display: flex;
     align-items: center;
@@ -101,3 +125,4 @@
     align-items: center;
     justify-content: center;
 }
+
