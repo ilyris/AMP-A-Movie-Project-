@@ -5,7 +5,8 @@ import "../../App.css";
 import 'react-id-swiper/lib/styles/css/swiper.css';
 import "../MovieSliders/MovieSlider.css";
 
-function MovieSlider({isSliderSmall = false, isHeroSectionComponent = false, children}) {
+function MovieSlider({isSliderSmall, isHeroSectionComponent, children}) {
+  console.log(isSliderSmall);
   const params = {
     init: true,
     loop: true,
@@ -17,14 +18,42 @@ function MovieSlider({isSliderSmall = false, isHeroSectionComponent = false, chi
       prevEl: '.swiper-button-prev',
     }
   }
-  if (isSliderSmall) params.slidesPerView = 7;
+  if (isSliderSmall) {
+    params.slidesPerView = 7;
+    params.breakpoints = {
+      1600: {
+        slidesPerView: 7,
+        spaceBetween: 20
+      },
+      1400: {
+        slidesPerView: 5,
+        spaceBetween: 10
+      },
+      1200: {
+        slidesPerView: 5,
+        spaceBetween: 20
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 20
+      },
+      860: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      600: {
+        slidesPerView: 1,
+        spaceBetween: 10
+      }
+    };
+  }
 
   let classNames = "sliderContainer";
   if(isHeroSectionComponent) {
     classNames += " heroSectionContainer";
   }
   return(
-    <div className={classNames}>
+    <div className={classNames} isSliderSmall={true}>
         <Swiper {...params}>
           {children}
         </Swiper>
@@ -32,7 +61,8 @@ function MovieSlider({isSliderSmall = false, isHeroSectionComponent = false, chi
   );
 }
 // HeroSection is the MovieSlider component we are rendering on the home page, we call it Hero Section here for sake of naming conventions.
-const HeroSection = ({nowPlayingMovies, isHeroSectionComponent = true}) => {
+const HeroSection = ({nowPlayingMovies, isHeroSectionComponent, isSliderSmall}) => {
+  console.log(isSliderSmall);
   return (
       <MovieSlider>
           {nowPlayingMovies.map(movie => (
