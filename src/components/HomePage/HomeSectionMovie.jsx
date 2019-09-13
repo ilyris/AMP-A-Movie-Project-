@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./SliderMovies.css";
+import "../SlideMovies/SliderMovies.css";
 
-const SliderMovies = ({ movies, image }) => {
+const HomeSectionMovie = ({ movies, image }) => {
 
   const addAdditionalSwiperButtonClasses = () => {
     const swiperButtonsNext = document.querySelectorAll(".swiper-button-next");
@@ -27,4 +27,4 @@ const SliderMovies = ({ movies, image }) => {
   );
 };
 
-export default SliderMovies;
+export default HomeSectionMovie;

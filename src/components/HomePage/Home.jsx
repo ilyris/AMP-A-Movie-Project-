@@ -4,6 +4,7 @@ import "./HomePage.css";
 import TvShowSlider2 from '../MovieSliders/SlickSlider';
 import NowPlayingMovieSlider from '../MovieSliders/NowPlayingMovieSlider';
 import UpcomingMoviesSlider from '../MovieSliders/UpcomingMoviesSlider';
+import MovieSlider from "./MovieSlider";
 
 
 const Home = () => {
@@ -37,6 +38,7 @@ const Home = () => {
 
   return(
     <div className="appWrapper">
+      <MovieSlider nowPlayingMovies={nowPlayingMovies} isHeroSection={true}/>
       <div className="movieWrapper">
         <TvShowSlider2 movies={movies} />
         <NowPlayingMovieSlider nowPlayingMovies={nowPlayingMovies} />
