@@ -27,18 +27,18 @@ a {
 
 a:hover,
 a:hover h2 {
-    color: #02cf5b !important;
+    color: rgb(0, 143, 238);
 }
 
 body {
     font-size: 10px;
     width: 100%;
-    background: #251246;
+    background: #d6d6d6;
     background-repeat: no-repeat;
 }
 
 input::placeholder {
-    color: #251246;
+    color: #000;
 }
 
 button:hover {
@@ -58,17 +58,17 @@ form a:hover {
 
 .swiper-button-next.swiper-buttons-added-class,
 .swiper-button-prev.swiper-buttons-added-class {
-    background-color: rgb(37, 18, 70);
+    background-color: #d6d6d6;
     padding: 30px;
     top: 45%;
 }
 
 .swiper-button-next.swiper-buttons-added-class {
-    right: -15px;
+    right: 15px;
 }
 
 .swiper-button-prev.swiper-buttons-added-class {
-    left: -15px;
+    left: 15px;
 }
 
 @media screen and (max-width: 860px) {

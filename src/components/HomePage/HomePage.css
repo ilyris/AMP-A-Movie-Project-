@@ -15,3 +15,26 @@
     width: 80%;
     margin: 0 auto;
   }
+  .sliderContainer.heroSectionContainer {
+    height: 92vh;
+    margin-top: 95px;
+  }
+  .sliderContainer.heroSectionContainer .swiper-container {
+    height: 100%;
+  }
+  .sliderContainer.heroSectionContainer,
+  .sliderContainer.heroSectionContainer .swiper-slide {
+    padding: 0;
+  }
+  .sliderContainer.heroSectionContainer .contentContainer .movieImage {
+    position: relative;
+    top: 50px;
+  }
+  .sliderContainer.heroSectionContainer .swiper-button-next.swiper-buttons-added-class,
+  .sliderContainer.heroSectionContainer .swiper-button-prev.swiper-buttons-added-class {
+    border-radius: 35px;
+    background-color: #fff;
+  }
+  .swiper-container {
+    border-bottom: 1px solid #000;
+  }

@@ -5,11 +5,16 @@
     align-items: center;
     justify-content: center;
     flex-flow: row wrap;
+    padding-bottom: 0;
   }
 
 .sliderTitle {
     font-size: 40px;
-    color: #fff;
+    color: #000;
     padding-bottom: 10px;
     text-align: center;
+    width: 100%;
+}
+.heroSectionContainer .sliderTitle {
+  padding: 0;
 }

@@ -2,18 +2,16 @@ import React, {useState, useEffect} from "react";
 import "../../App.css";
 import "./HomePage.css";
 import TvShowSlider2 from '../MovieSliders/SlickSlider';
-import NowPlayingMovieSlider from '../MovieSliders/NowPlayingMovieSlider';
+import MovieSliderContainer from "./MovieSliderContainer";
+// import NowPlayingMovieSlider from '../MovieSliders/NowPlayingMovieSlider';
 import UpcomingMoviesSlider from '../MovieSliders/UpcomingMoviesSlider';
-import MovieSlider from "./MovieSlider";
-
+// import MovieSlider from "./MovieSlider";
 
 const Home = () => {
 
   const [movies, setMovies] = useState([]);
   const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
   const [upcomingMovies, setUpcomingMovies] = useState([]);
-
-
 
   useEffect( () => {
     const api_Key = process.env.REACT_APP_API_KEY;
@@ -33,15 +31,16 @@ const Home = () => {
       setUpcomingMovies(upcomingMoviesData.results);
     };
     fetchApiCall();
+
   },[]);
 
   return(
     <div className="appWrapper">
-      <MovieSlider nowPlayingMovies={nowPlayingMovies} isHeroSectionComponent={true}/>
+        <MovieSliderContainer nowPlayingMovies={nowPlayingMovies} isSliderSmall={false} isHeroSectionComponent={true}/>
       <div className="movieWrapper">
-        <TvShowSlider2 movies={movies} />
-        <MovieSlider nowPlayingMovies={nowPlayingMovies} isHeroSectionComponent={false} />
-        <UpcomingMoviesSlider upcomingMovies={upcomingMovies}/>
+        <MovieSliderContainer nowPlayingMovies={movies} sliderTitle={"Top Rated"} isSliderSmall={true} isHeroSectionComponent={false}/>
+        <MovieSliderContainer nowPlayingMovies={nowPlayingMovies} sliderTitle={"Now Playing"} isSliderSmall={true} isHeroSectionComponent={false} />
+        <MovieSliderContainer nowPlayingMovies={upcomingMovies} sliderTitle={"Upcoming"} isSliderSmall={true} isHeroSectionComponent={false}/>
       </div>
     </div>
   )
