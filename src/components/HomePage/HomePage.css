@@ -19,6 +19,9 @@
     height: 92vh;
     margin-top: 95px;
   }
+  .sliderContainer.heroSectionContainer .movieImage {
+    border-radius: 0;
+  }
   .sliderContainer.heroSectionContainer .swiper-container {
     height: 100%;
   }
