@@ -1,11 +1,7 @@
 import React, {useState, useEffect} from "react";
 import "../../App.css";
 import "./HomePage.css";
-import TvShowSlider2 from '../MovieSliders/SlickSlider';
 import MovieSliderContainer from "./MovieSliderContainer";
-// import NowPlayingMovieSlider from '../MovieSliders/NowPlayingMovieSlider';
-import UpcomingMoviesSlider from '../MovieSliders/UpcomingMoviesSlider';
-// import MovieSlider from "./MovieSlider";
 
 const Home = () => {
 

@@ -54,7 +54,7 @@ form a:hover {
 
 .swiper-wrapper {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .swiper-button-next.swiper-buttons-added-class,

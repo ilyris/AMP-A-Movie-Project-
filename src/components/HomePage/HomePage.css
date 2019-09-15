@@ -17,7 +17,13 @@
   }
   .sliderContainer.heroSectionContainer {
     height: 92vh;
-    margin-top: 95px;
+    margin-top: 90px;
+  }
+  @media screen and (max-width: 860px) {
+    .sliderContainer.heroSectionContainer {
+      margin-top: 120px;
+      height: 100%;
+    }
   }
   .sliderContainer.heroSectionContainer .movieImage {
     border-radius: 0;
@@ -31,7 +37,7 @@
   }
   .sliderContainer.heroSectionContainer .contentContainer .movieImage {
     position: relative;
-    top: 50px;
+    top: 27px;
   }
   .sliderContainer.heroSectionContainer .swiper-button-next.swiper-buttons-added-class,
   .sliderContainer.heroSectionContainer .swiper-button-prev.swiper-buttons-added-class {
@@ -40,4 +46,31 @@
   }
   .swiper-container {
     border-bottom: 1px solid #000;
+  }
+  .sliderContainer.heroSectionContainer .aboutMovieContentContainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 100px;
+    z-index: 10;
+    font-size: 1.4rem;
+    color: #fff;
+    display: block;
+  }
+  .sliderContainer.heroSectionContainer .titleHeading {
+    display: none;
+  }
+  .sliderContainer.heroSectionContainer .aboutMovieContentContainer .titleHeading {
+    display: block;
+  }
+  @media screen and (max-width: 860px) {
+    .sliderContainer.heroSectionContainer .aboutMovieContentContainer {
+      padding: 20px;
+    }
+    .sliderContainer.heroSectionContainer .aboutMovieContentContainer .titleHeading {
+      font-size: 1.8rem;
+    }
+    .sliderContainer.heroSectionContainer .aboutMovieContentContainer p {
+      font-size: 1rem;
+    }
   }

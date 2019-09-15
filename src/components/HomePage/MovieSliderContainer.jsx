@@ -19,11 +19,11 @@ const MovieSliderContainer = ({isSliderSmall, isHeroSectionComponent, nowPlaying
       }
     }
     if (isSliderSmall) {
-      params.slidesPerView = 7;
+      params.slidesPerView = 6;
       params.breakpoints = {
         1600: {
-          slidesPerView: 7,
-          spaceBetween: 20
+          slidesPerView: 6,
+          spaceBetween: 10
         },
         1400: {
           slidesPerView: 5,

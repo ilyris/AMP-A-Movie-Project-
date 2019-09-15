@@ -18,3 +18,25 @@
 .heroSectionContainer .sliderTitle {
   padding: 0;
 }
+/* .heroSectionContainer .titleHeading,
+.movieLanguage,
+.movieRating {
+  display: none;
+} */
+.heroSectionContainer .aboutMovieContentContainer {
+  display: block;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+}
+.aboutMovieContentContainer .titleHeading {
+  font-size: 3rem;
+  color: #fff;
+}
+.aboutMovieContentContainer p {
+  padding: 5px 0;
+}
+.aboutMovieContentContainer {
+  display: none;
+}

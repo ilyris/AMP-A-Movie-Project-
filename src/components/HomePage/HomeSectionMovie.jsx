@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../SlideMovies/SliderMovies.css";
 
 const HomeSectionMovie = ({ movies, image }) => {
-
+  console.log(movies);
   const addAdditionalSwiperButtonClasses = () => {
     const swiperButtonsNext = document.querySelectorAll(".swiper-button-next");
     const swiperButtonsPrev = document.querySelectorAll(".swiper-button-prev");
@@ -22,6 +22,11 @@ const HomeSectionMovie = ({ movies, image }) => {
       <div className="contentContainer">
         <img className="movieImage" alt="Tv Show poster" src={image} />
         <h2 className="titleHeading">{movies.title}</h2>
+        <div className="aboutMovieContentContainer">
+        <h2 className="titleHeading">{movies.title}</h2>
+          <p className="movieRating">Rating: {movies.vote_average}</p>
+          <p className="movieLanguage">Langauge: {movies.original_language}</p>
+        </div>
       </div>
     </Link>
   );
