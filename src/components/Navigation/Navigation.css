@@ -61,6 +61,10 @@
     }
     .navWrapper .title {
         padding: 0;
+        font-size: 2rem;
+    }
+    .inputSearchField {
+        font-size: 1rem;
     }
 }
 .userAccountLoginContainer {
@@ -106,6 +110,12 @@
     height: 100%;
     width: 100%;
 }
+@media only screen and  (max-width: 860px) {
+    .inputSearchField {
+        font-size: 1.2rem;
+        height: 70%;
+    }
+}
 .reactRouterLink {
     color: #000;
     text-align: center;
@@ -128,5 +138,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+@media only screen and  (max-width: 860px) {
+    .reactRouterLink {
+        height: 70%;
+        font-size: 1.4rem;
+    }
 }
 
