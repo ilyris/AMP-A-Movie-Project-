@@ -19,14 +19,14 @@ const MovieSliderContainer = ({isSliderSmall, isHeroSectionComponent, nowPlaying
       }
     }
     if (isSliderSmall) {
-      params.slidesPerView = 6;
+      params.slidesPerView = 7;
       params.breakpoints = {
         1600: {
-          slidesPerView: 6,
+          slidesPerView: 7,
           spaceBetween: 10
         },
         1400: {
-          slidesPerView: 5,
+          slidesPerView: 6,
           spaceBetween: 10
         },
         1200: {
@@ -34,17 +34,13 @@ const MovieSliderContainer = ({isSliderSmall, isHeroSectionComponent, nowPlaying
           spaceBetween: 20
         },
         1024: {
-          slidesPerView: 3,
-          spaceBetween: 20
+          slidesPerView: 4,
+          spaceBetween: 0
         },
         860: {
-          slidesPerView: 2,
-          spaceBetween: 20
+          slidesPerView: 3,
+          spaceBetween: 0
         },
-        600: {
-          slidesPerView: 1,
-          spaceBetween: 10
-        }
       };
     }
 

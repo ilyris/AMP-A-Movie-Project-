@@ -21,6 +21,7 @@ const HomeSectionMovie = ({ movies, image }) => {
       className="swiper-slide linkToMoviePage sliderMovie" to={{ pathname: `/movie/${movies.title}`, state: { movies } }}>
       <div className="contentContainer">
         <img className="movieImage" alt="Tv Show poster" src={image} />
+        <div className="movieImageOverlay"></div>
         <h2 className="titleHeading">{movies.title}</h2>
         <div className="aboutMovieContentContainer">
         <h2 className="titleHeading">{movies.title}</h2>

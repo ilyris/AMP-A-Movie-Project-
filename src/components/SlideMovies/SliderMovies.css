@@ -8,13 +8,12 @@
   }
   @media only screen and  (max-width: 860px) {
     .contentContainer .titleHeading {
-      font-size: 1.4rem;
+      font-size: 1rem;
     }
   }
   
   
   .movieImage {
-    width: 85%;
     border-radius: 20px;
   }
   
@@ -24,6 +23,7 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
+    transition: all ease-in-out 180ms;
   }
   
   
@@ -34,7 +34,13 @@
     flex-direction: column;
     width: 100%;
     max-width: 100%;
-    padding: 20px;
-    /* height: 400px; */
+    padding: 10px;
+    transition: all ease-in-out 180ms;
+  }
+  .sliderMovie.linkToMoviePage:hover .contentContainer {
+    transform: scale(1.05);
+  }
+  .heroSectionContainer .sliderMovie.linkToMoviePage:hover .contentContainer {
+    transform: scale(1);
   }
   
