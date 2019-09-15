@@ -60,6 +60,7 @@
   .sliderContainer.heroSectionContainer .swiper-button-prev.swiper-buttons-added-class {
     border-radius: 35px;
     background-color: #fff;
+    top: 45%
   }
   .swiper-container {
     border-bottom: 1px solid #000;
@@ -91,11 +92,6 @@
     }
     .sliderContainer.heroSectionContainer .aboutMovieContentContainer p {
       font-size: 1rem;
-    }
-    .sliderContainer.heroSectionContainer .swiper-button-next.swiper-buttons-added-class,
-    .sliderContainer.heroSectionContainer .swiper-button-prev.swiper-buttons-added-class {
-      top: 40%;
-      padding: 25px;
     }
     
   }

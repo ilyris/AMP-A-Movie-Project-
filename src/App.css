@@ -61,7 +61,8 @@ form a:hover {
 .swiper-button-prev.swiper-buttons-added-class {
     background-color: #d6d6d6;
     padding: 30px;
-    top: 45%;
+    top: 35%;
+    border-radius: 30px;
 }
 
 .swiper-button-next.swiper-buttons-added-class {
