@@ -9,6 +9,7 @@ const Home = () => {
   const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
   const [upcomingMovies, setUpcomingMovies] = useState([]);
 
+
   useEffect( () => {
     const api_Key = process.env.REACT_APP_API_KEY;
     const baseURL = 'https://api.themoviedb.org/3/';
@@ -32,11 +33,11 @@ const Home = () => {
 
   return(
     <div className="appWrapper">
-        <MovieSliderContainer nowPlayingMovies={nowPlayingMovies} isSliderSmall={false} isHeroSectionComponent={true}/>
+        <MovieSliderContainer movies={nowPlayingMovies} isSliderSmall={false} isHeroSectionComponent={true}/>
       <div className="movieWrapper">
-        <MovieSliderContainer nowPlayingMovies={movies} sliderTitle={"Top Rated"} isSliderSmall={true} isHeroSectionComponent={false}/>
-        <MovieSliderContainer nowPlayingMovies={nowPlayingMovies} sliderTitle={"Now Playing"} isSliderSmall={true} isHeroSectionComponent={false} />
-        <MovieSliderContainer nowPlayingMovies={upcomingMovies} sliderTitle={"Upcoming"} isSliderSmall={true} isHeroSectionComponent={false}/>
+        <MovieSliderContainer movies={movies} sliderTitle={"Top Rated"} isSliderSmall={true} isHeroSectionComponent={false}/>
+        <MovieSliderContainer movies={nowPlayingMovies} sliderTitle={"Now Playing"} isSliderSmall={true} isHeroSectionComponent={false} />
+        <MovieSliderContainer movies={upcomingMovies} sliderTitle={"Upcoming"} isSliderSmall={true} isHeroSectionComponent={false}/>
       </div>
     </div>
   )

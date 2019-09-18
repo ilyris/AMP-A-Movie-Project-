@@ -15,11 +15,6 @@
     width: 80%;
     margin: 0 auto;
   }
-  @media screen and (max-width: 860px) {
-    .movieWrapper {
-      width: 100%;
-    }
-  }
   .sliderContainer.heroSectionContainer {
     height: 92vh;
     margin-top: 90px;
@@ -27,15 +22,7 @@
   .sliderContainer.heroSectionContainer .swiper-container {
     height: 100%;
   }
-  @media screen and (max-width: 860px) {
-    .sliderContainer.heroSectionContainer {
-      margin-top: 120px;
-      height: 100%;
-    }
-    .sliderContainer.heroSectionContainer .swiper-container {
-      height: 40vh;
-    }
-  }
+
   .sliderContainer.heroSectionContainer .movieImage {
     border-radius: 0;
   }
@@ -93,5 +80,14 @@
     .sliderContainer.heroSectionContainer .aboutMovieContentContainer p {
       font-size: 1rem;
     }
-    
+    .sliderContainer.heroSectionContainer {
+      margin-top: 120px;
+      height: 100%;
+    }
+    .sliderContainer.heroSectionContainer .swiper-container {
+      height: 40vh;
+    }
+    .movieWrapper {
+      width: 100%;
+    }
   }

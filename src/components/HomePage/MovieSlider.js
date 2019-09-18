@@ -3,11 +3,11 @@ import HomeSectionMovie from "./HomeSectionMovie";
 import "../../App.css";
 import "../MovieSliders/MovieSlider.css";
 
-const MovieSlider = ({nowPlayingMovies, isHeroSectionComponent}) => {
+const MovieSlider = ({movies, isHeroSectionComponent}) => {
 
   return (
     <React.Fragment>
-          {nowPlayingMovies.map(movie => (
+          {movies.map(movie => (
               <HomeSectionMovie
                 key={movie.id}
                 image={`https://image.tmdb.org/t/p/original${isHeroSectionComponent ? movie.backdrop_path : movie.poster_path}`}

@@ -7,6 +7,7 @@ import Home from './components/HomePage/Home';
 import Navigation from './components/Navigation/Navigation';
 import MobileMenu from './components/MobileMenu/MobileMenu';
 import SearchPage from './components/SearchPage/SearchPage';
+import DiscoverPage from './components/DiscoverPage/DiscoverPage';
 
 
 const App = () => {
@@ -53,6 +54,7 @@ const App = () => {
            it would take up that argument in the URL and render the detail component. */}
           <Route exact path="/movie/:id" component={Details} />
         {/* <Route exact path ="/movies" component={Movies} /> */}
+           <Route exact path="/discover" component={DiscoverPage} />
         </Switch>
     </div>
     </Router>

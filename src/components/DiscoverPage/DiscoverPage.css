@@ -1,0 +1,51 @@
+.discoverContentContainer {
+    margin-top: 100px;
+}
+.discoverPageTitle {
+    font-size: 4rem;
+    text-align: center;
+}
+.discoverForm {
+    display: flex;
+    justify-content: center;
+}
+.discoverForm input,
+.discoverForm select {
+    margin: 0 20px;
+    border-radius: 20px;
+    border: 1px solid #000;
+    padding: 10px;
+    font-size: 1.2rem;
+    outline: none;
+}
+.discoverForm select option {
+    border-radius: 20px;
+    color: #000;
+    outline: none;
+}
+.discoverForm select option:focus {
+    background-color: #fff;
+}
+
+.discoverSearchButtonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+.discoverSubmit {
+    padding: 20px 35px;
+    width: 300px;
+    background-color: transparent;
+    border-radius: 35px;
+    border: 1px solid #000;
+    font-size: 1.8rem;
+    color: #000;
+    transition: all ease-in-out 120ms;
+    outline: none;
+}
+.discoverSubmit:hover {
+    cursor: pointer;
+    background-color: #fff;
+    box-shadow: 0px 10px 15px -7px rgb(37, 37, 37);
+    transform: scale(1.05);   
+}

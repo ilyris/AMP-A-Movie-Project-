@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "../SlideMovies/SliderMovies.css";
 
 const HomeSectionMovie = ({ movies, image }) => {
-  console.log(movies);
   const addAdditionalSwiperButtonClasses = () => {
     const swiperButtonsNext = document.querySelectorAll(".swiper-button-next");
     const swiperButtonsPrev = document.querySelectorAll(".swiper-button-prev");

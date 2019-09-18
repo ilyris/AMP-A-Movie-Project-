@@ -6,7 +6,7 @@ import "../../App.css";
 import 'react-id-swiper/lib/styles/css/swiper.css';
 import "../MovieSliders/MovieSlider.css";
 
-const MovieSliderContainer = ({isSliderSmall, isHeroSectionComponent, nowPlayingMovies,sliderTitle}) => {
+const MovieSliderContainer = ({isSliderSmall, isHeroSectionComponent, movies,sliderTitle}) => {
     const params = {
       init: true,
       loop: true,
@@ -52,7 +52,7 @@ const MovieSliderContainer = ({isSliderSmall, isHeroSectionComponent, nowPlaying
       <div className={classNames}>
           <h2 className="sliderTitle">{sliderTitle}</h2>
           <Swiper {...params}>
-            <MovieSlider nowPlayingMovies={nowPlayingMovies} isSliderSmall={isSliderSmall} isHeroSectionComponent={isHeroSectionComponent}/>
+            <MovieSlider movies={movies} isSliderSmall={isSliderSmall} isHeroSectionComponent={isHeroSectionComponent}/>
           </Swiper>
         </div>
     );
