@@ -33,9 +33,7 @@ const App = () => {
     }
   }
 
-  const handleOnClickSubmit = event => {
-    return fetchApiCall();
-  };
+  const handleOnClickSubmit = event =>  fetchApiCall();
 
   return (
     <Router>
