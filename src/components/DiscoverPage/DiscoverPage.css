@@ -49,3 +49,13 @@
     box-shadow: 0px 10px 15px -7px rgb(37, 37, 37);
     transform: scale(1.05);   
 }
+.paginationButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.paginationButton {
+    margin: 0 20px;
+    font-size: 2rem;
+    padding: 10px 20px;
+}

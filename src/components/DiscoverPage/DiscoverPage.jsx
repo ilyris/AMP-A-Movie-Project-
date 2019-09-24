@@ -15,10 +15,24 @@ const DiscoverPage = () => {
     const api_Key = process.env.REACT_APP_API_KEY;
     const baseURL = 'https://api.themoviedb.org/3/';
 
+    const handlePagination = pageTransitionValue => {
+        console.log(`${pageNumber} is `);
+        if( pageNumber === 1 && pageTransitionValue === "-") {
+            console.log("I ran. first condition");
+            setPageNumber(1);
+        } else if(pageTransitionValue === "+") {
+            console.log("I ran. second condition");
+           setPageNumber(pageNumber + 1);
+        } else if(pageTransitionValue === "-") {
+            console.log("I ran. third condition");
+           setPageNumber(pageNumber - 1);
+        }
+        console.log(pageNumber);
+    }
+
      const fetchDiscoverMovies = async () => {
-         const getResponse = await fetch(`${baseURL}discover/movie?api_key=${api_Key}&language=en-US&sort_by=${discoverSortBy}&year=${discoverYear}&vote_average.gte=${discoverVoteAverage}&with_cast=${discoverCast}&with_genres=${discoverGenre}&page=${pageNumber}`);
+         const getResponse = await fetch(`${baseURL}discover/movie?api_key=${api_Key}&language=en-US&sort_by=${discoverSortBy}&include_adult=false&year=${discoverYear}&vote_average.gte=${discoverVoteAverage}&with_cast=${discoverCast}&with_genres=${discoverGenre}&page=${pageNumber}`);
          const data = await getResponse.json();
-         console.log(data.results);
          setDiscoverMovies(data.results);
      }
 
@@ -28,18 +42,13 @@ const DiscoverPage = () => {
      const handleCast = event => setDiscoverCast(event.target.value);
      const handleYear = event => setDiscoverYear(event.target.value);
 
-     const handleDiscoverSearch = event => fetchDiscoverMovies();
+     const handleDiscoverSearch = event =>  {
+         fetchDiscoverMovies();
+        event.preventDefault();
+     }
 
      
-     const handlePagination = pageTransition => {
-         if( pageNumber === 1 && pageTransition === "-") {
-             setPageNumber(1);
-         } else if(pageTransition === "+") {
-            setPageNumber(pageNumber + 1);
-         } else if(pageTransition === "+") {
-            setPageNumber(pageNumber - 1);
-         }
-     }
+
 
     return(
         <div>
@@ -54,10 +63,10 @@ const DiscoverPage = () => {
                     <option value="revenue.asc">Revune Asc</option>
                     <option value="revenue.desc">Revune Desc</option>
                 </select>
-                <input className="discoverVoteAverage" placeholder="rating" name="vote_average" onChange={handleVoteAverage}/>
-                <input className="discoverGenre" placeholder="genre" name="movie_genre" onChange={handleGenre}/>
-                <input className="discoverCast" placeholder="actor/actress" name="movie_cast" onChange={handleCast}/>
-                <input className="discoverYear" placeholder="year" name="movie_year" onChange={handleYear}/>
+                <input className="discoverVoteAverage" placeholder="rating" name="vote_average" onChange={handleVoteAverage} />
+                <input className="discoverGenre" placeholder="genre" name="movie_genre" onChange={handleGenre} />
+                <input className="discoverCast" placeholder="actor/actress" name="movie_cast" onChange={handleCast} />
+                <input className="discoverYear" placeholder="year" name="movie_year" onChange={handleYear} />
             </form>
             <div className="discoverSearchButtonContainer">
                 <button className="discoverSubmit" onClick={handleDiscoverSearch}>Discover</button>
@@ -67,13 +76,17 @@ const DiscoverPage = () => {
             {discoverMovies.map(movies => {
                 return(
                     <Movie
-                key={movies.id}
-                image={`https://image.tmdb.org/t/p/w185${movies.poster_path}`}
-                title={movies.title}
-                movies={movies}
-              />
+                        key={movies.id}
+                        image={`https://image.tmdb.org/t/p/w185${movies.poster_path}`}
+                        title={movies.title}
+                        movies={movies}
+                    />
                 )
             })}
+        </div>
+        <div className="paginationButtonContainer" onClick={fetchDiscoverMovies}>
+            <button className="paginationButton prev" onClick={ () => handlePagination("-")}>Prev</button>
+            <button className="paginationButton next" onClick={() => handlePagination("+")}>Next</button>
         </div>
         </div>
     );
