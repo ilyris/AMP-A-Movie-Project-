@@ -82,8 +82,8 @@
     width: 100%;
     z-index: 111;
     display: flex;
-    background: #97730e;
-    background: linear-gradient(142deg, #97730e 0%, #c0941c 100%);
+    background: #1a1a1a;
+    border-top: 2px solid #fff;
 }
 
 .iconLinks {
