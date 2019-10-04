@@ -33,7 +33,7 @@ const App = () => {
   const fetchApiCall = async () => {
     const getResponse = await fetch(`${baseURL}search/movie?api_key=${api_Key}&query=${searchfield}&page=${pageNumber}`);
     const data = await getResponse.json();
-    console.log(data.results)
+    console.log(data.results);
     setMovies(data.results);
   };
 
@@ -53,8 +53,8 @@ const App = () => {
       setPageNumber(1);
     }
     fetchApiCall();
-
   }
+
 
   return (
     <Router>
@@ -71,7 +71,7 @@ const App = () => {
           <Route exact path ="/search" render={ props => <SearchPage {...props} movies={movies} fetchApiCall={fetchApiCall} handlePagination={handlePagination}/>} />
           {/* set up the second parameter as the id and the first one as movie since we would navigate to another page,
            it would take up that argument in the URL and render the detail component. */}
-          <Route exact path="/movie/:id" component={Details} />
+          <Route exact path="/movie/:id" render={props => <Details {...props} api_Key={api_Key} baseUrl={baseURL} />} />
         {/* <Route exact path ="/movies" component={Movies} /> */}
           <Route exact path="/discover" component={DiscoverPage} />
 

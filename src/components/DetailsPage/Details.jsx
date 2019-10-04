@@ -1,11 +1,28 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import {withRouter} from 'react-router-dom';
 import "./DetailsPage.css";
+import CastMemberSlideContainer from './CastMemberSlideContainer';
 
-const Details = ({match, location}) =>  { 
+const Details = ({match, location, api_Key}) =>  { 
     const { title, overview, release_date ,poster_path, vote_average,backdrop_path} = location.state.movies;
+
     const posterImageURL = `https://image.tmdb.org/t/p/original${poster_path}`;
     const backDropImage = `https://image.tmdb.org/t/p/original${backdrop_path}`;
+    const baseURL2 = 'https://api.themoviedb.org/3/';
+
+    const [cast, setCast] = useState([]);
+
+      useEffect( () => {
+        const fetchMovieCredits = async () => {
+            const getCreditResponse = await fetch(`${baseURL2}movie/${location.state.movies.id}/credits?api_key=${api_Key}`);
+            const creditResponseData = await getCreditResponse.json();
+            console.log(creditResponseData.cast);
+            setCast(creditResponseData.cast);
+          };
+        fetchMovieCredits();
+      }, []);
+
+
     return  (
         <div>
             <div className= "heroSection">
@@ -21,6 +38,7 @@ const Details = ({match, location}) =>  {
                     <p className="movieDetailsParagraphText"><span className="styledSpan">Details: </span>{overview}</p>
                 </div>
             </div>
+            <CastMemberSlideContainer cast={cast} sliderTitle={"Cast Members"}/>
         </div>
         );
 }

@@ -20,12 +20,3 @@ const MovieSlider = ({movies, isHeroSectionComponent}) => {
 }
 
 export default MovieSlider;
-
-
-
-
-
-
-
-
-
