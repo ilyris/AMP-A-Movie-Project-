@@ -14,7 +14,6 @@ const HomeSectionMovie = ({ movies, image }) => {
     );
   };
   addAdditionalSwiperButtonClasses();
-
   return (
     <Link
       className="swiper-slide linkToMoviePage sliderMovie" to={{ pathname: `/movie/${movies.title}`, state: { movies } }}>
