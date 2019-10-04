@@ -25,7 +25,7 @@ const Details = ({match, location, api_Key,}) =>  {
           };
         fetchMovieCredits();
       }, []);
-      console.log(reviews);
+
     return  (
         <div>
             <div className= "heroSection">

@@ -5,11 +5,12 @@ import MovieReview from './MovieReview';
 
 
 const MovieReviewContainer = ({reviews}) => {
+    console.log(reviews);
     return(
         <ReviewContainer>
             {reviews.map( reviews => {
                 return(
-                    <MovieReview 
+                <MovieReview 
                     author={reviews.author}
                     content={reviews.content}
                     reviewLink={reviews.url}

@@ -53,3 +53,7 @@
     letter-spacing: 1px;
     line-height: 40px;
 }
+
+.movieImage.personImage {
+    height: 300px;
+}
