@@ -11,8 +11,8 @@ const CastMemberSlideContainer = ({cast,sliderTitle}) => {
       init: true,
       loop: true,
       observer: true,
-      slidesPerView: 7,
-      spaceBetween: 10,
+      slidesPerView: 6,
+      spaceBetween: 20,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',

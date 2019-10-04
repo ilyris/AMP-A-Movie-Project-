@@ -30,4 +30,6 @@ const ReviewContainer = S.div`
     flex-flow: row wrap;
     width: 100%;
     margin: 20px 0;
+    width: 90%;
+    margin: 0 auto;
 `;

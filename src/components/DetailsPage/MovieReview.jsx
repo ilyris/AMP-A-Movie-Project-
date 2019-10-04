@@ -2,10 +2,11 @@ import React from 'react';
 import S from 'styled-components';
 
 const MovieReview = ({author, content, reviewLink}) => {
+
     return(
         <ReviewCard>
             <AuthorsName>Written By: {author}</AuthorsName>
-            <ParagraphContent>{content}</ParagraphContent>
+            <ParagraphContent>{content.length > 600 ? content.substr(0,600) + "..." : content }</ParagraphContent>
             <ReviewLinkContainer>
                 <ReviewLink href={reviewLink}>See full review</ReviewLink>
             </ReviewLinkContainer>
@@ -21,6 +22,7 @@ const ReviewCard = S.div`
     margin: 20px;
     box-shadow: 0px 2px 10px -2px;
     border-left: 10px solid #000;
+    width: 100%;
 `;
 
 const ParagraphContent = S.p`

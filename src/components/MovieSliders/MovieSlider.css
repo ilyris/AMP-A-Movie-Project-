@@ -1,11 +1,12 @@
 .sliderContainer {
-    width: 100%;
+    width: 90%;
     padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-flow: row wrap;
     padding-bottom: 0;
+    margin: 0 auto;
   }
 
 .sliderTitle {
