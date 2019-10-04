@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import "../SlideMovies/SliderMovies.css";
 
 const CastMember = ({cast,title, crewMemberImage}) => {
-  console.log(cast.cast_id);
+
   const mullImage = 'https://image.tmdb.org/t/p/w185null';
   const undefinedImage = 'https://image.tmdb.org/t/p/w185undefined';
   const placeholderImage = 'http://www.citypages.com/img/movie-placeholder.gif';

@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Movies.css";
 
-const Movie = ({ title, movies, image }) => {
+const Movie = ({ title,id, movies, image }) => {
   const mullImage = 'https://image.tmdb.org/t/p/w185null';
   const undefinedImage = 'https://image.tmdb.org/t/p/w185undefined';
   const placeholderImage = 'http://www.citypages.com/img/movie-placeholder.gif';
   return (
-    <Link className ="linkToMoviePage" to={{ pathname: `/movie/${title}`,
+    <Link className ="linkToMoviePage" to={{ pathname: `/details/movie/${id}`,
     state: {movies}}}>
         <div className="contentContainer">
         <img className="movieImage" alt="Movie poster" src={image === mullImage || image === undefinedImage ? placeholderImage : image} />

@@ -16,7 +16,7 @@ const HomeSectionMovie = ({ movies, image }) => {
   addAdditionalSwiperButtonClasses();
   return (
     <Link
-      className="swiper-slide linkToMoviePage sliderMovie" to={{ pathname: `/movie/${movies.title}`, state: { movies } }}>
+      className="swiper-slide linkToMoviePage sliderMovie" to={{ pathname: `/details/movie/${movies.id}`, state: { movies } }}>
       <div className="contentContainer">
         <img className="movieImage" alt="Tv Show poster" src={image} />
         <div className="movieImageOverlay"></div>

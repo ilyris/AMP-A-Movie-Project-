@@ -11,6 +11,7 @@ export default function SearchPage({movies,fetchApiCall, handlePagination}) {
             return (
               <Movie
                 key={movies.id}
+                id={movies.id}
                 image={`https://image.tmdb.org/t/p/w185${movies.poster_path}`}
                 title={movies.title}
                 movies={movies}
