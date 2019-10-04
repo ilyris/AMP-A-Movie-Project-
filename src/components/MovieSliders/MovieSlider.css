@@ -17,11 +17,7 @@
 .heroSectionContainer .sliderTitle {
   padding: 0;
 }
-/* .heroSectionContainer .titleHeading,
-.movieLanguage,
-.movieRating {
-  display: none;
-} */
+
 .heroSectionContainer .aboutMovieContentContainer {
   display: block;
   display: flex;
