@@ -57,3 +57,10 @@
 .movieImage.personImage {
     height: 300px;
 }
+
+.TrailerContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 40px auto;
+}
