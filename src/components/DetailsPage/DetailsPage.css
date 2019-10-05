@@ -63,4 +63,20 @@
     justify-content: space-between;
     width: 90%;
     margin: 40px auto;
+    flex-flow: row wrap;
+}
+.TrailerContainer iframe {
+    width: 30%;
+    min-width: 350px;
+}
+@media screen and (max-width: 1200px) {
+    .TrailerContainer iframe {
+        width: 50%;
+    }
+}
+@media screen and (max-width: 860px) {
+    .TrailerContainer iframe {
+        width: 100%;
+        margin: 20px 0;
+    }
 }

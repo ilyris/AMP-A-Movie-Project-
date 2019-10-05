@@ -59,7 +59,7 @@ const Details = ({match, location, api_Key,}) =>  {
           </div>
             <CastMemberSlideContainer cast={cast} sliderTitle={"Cast Members"}/>
             <div className="movieReviewContainer">
-            <MovieReviewContainer reviews={reviews}/>
+              <MovieReviewContainer reviews={reviews}/>
           </div>
         </div>
         );
