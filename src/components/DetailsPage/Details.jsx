@@ -38,29 +38,34 @@ const Details = ({match, location, api_Key}) =>  {
             <div className= "heroSection">
                 <img className="backgroundPosterImage" alt="background poster of movie" src={backDropImage}></img>
                 <div className="backDropImageOverlay"></div>
+                <h2 className="styledH2">{title}</h2>
                 <div className="posterContainerDiv">
                     <img className="posterImage" alt="movie cover"src={posterImageURL}></img>
                     <p className="movieDetailsParagraphText"><span className="styledSpan">Released: </span> {release_date}</p>
                     <p className="movieDetailsParagraphText"><span className="styledSpan">Rated: </span> {vote_average} Stars </p>
                 </div>
-                <div className="informationContainer">
-                    <h2 className="styledH2">{title}</h2>
-                    <p className="movieDetailsParagraphText"><span className="styledSpan">Details: </span>{overview}</p>
-                </div>
+            </div>
+            <div className="informationContainer">
+              <h2 className="sliderTitle">Summary</h2>
+              <p className="movieDetailsParagraphText">{overview}</p>
             </div>
             <div className="TrailerContainer">
-          {movieTrailers.map( (movieTrailers, index) => {
-            return(
-              <YouTubeMovieTrailers
-              trailerKey={movieTrailers.key}
-              key={index}
-              />
-            );
+              <h2 className="sliderTitle">Trailers</h2>
+              {movieTrailers.map( (movieTrailers, index) => {
+                if(index < 3) {
+                  return(
+                  <YouTubeMovieTrailers
+                    trailerKey={movieTrailers.key}
+                    key={index}
+                  />
+                  );
+                } return null;
+
           })}
           </div>
             <CastMemberSlideContainer cast={cast} sliderTitle={"Cast Members"}/>
             <div className="movieReviewContainer">
-              <MovieReviewContainer reviews={reviews}/>
+              <MovieReviewContainer reviews={reviews} title={"Reviews"}/>
           </div>
         </div>
         );

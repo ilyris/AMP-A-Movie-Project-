@@ -4,9 +4,10 @@ import MovieReview from './MovieReview';
 
 
 
-const MovieReviewContainer = ({reviews}) => {
+const MovieReviewContainer = ({title,reviews}) => {
     return(
         <ReviewContainer>
+        <h2 className="sliderTitle">{title}</h2>
             {reviews.map( (reviews, index) => {
                 return(
                 <MovieReview 

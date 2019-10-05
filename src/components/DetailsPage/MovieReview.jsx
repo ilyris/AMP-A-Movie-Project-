@@ -19,7 +19,7 @@ export default MovieReview;
 const ReviewCard = S.div`
     background-color: #fff;
     padding: 20px;
-    margin: 20px;
+    margin: 20px 0;
     box-shadow: 0px 2px 10px -2px;
     border-left: 10px solid #000;
     width: 100%;
