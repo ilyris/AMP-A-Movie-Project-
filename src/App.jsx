@@ -33,7 +33,6 @@ const App = () => {
   const fetchApiCall = async () => {
     const getResponse = await fetch(`${baseURL}search/movie?api_key=${api_Key}&query=${searchfield}&page=${pageNumber}`);
     const data = await getResponse.json();
-    console.log(data.results);
     setMovies(data.results);
   };
 
