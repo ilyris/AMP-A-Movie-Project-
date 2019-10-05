@@ -5,7 +5,7 @@ import CastMemberSlideContainer from './CastMemberSlideContainer';
 import MovieReviewContainer from "./MovieReviewContainer";
 import YouTubeMovieTrailers from "./YouTubeMovieTrailers";
 
-const Details = ({match, location, api_Key,}) =>  { 
+const Details = ({match, location, api_Key}) =>  { 
     const { title, overview, release_date ,poster_path, vote_average,backdrop_path} = location.state.movies;
 
     const posterImageURL = `https://image.tmdb.org/t/p/original${poster_path}`;
@@ -31,7 +31,8 @@ const Details = ({match, location, api_Key,}) =>  {
             setMovieTrailers(getMovieTrailersData.results);
           };
         fetchMovieCredits();
-      }, []);
+        {/* // eslint-disable-next-line */}
+      }, [cast]);
     return  (
         <div>
             <div className= "heroSection">

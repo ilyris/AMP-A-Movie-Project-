@@ -30,6 +30,7 @@ const ParagraphContent = S.p`
     font-size: 1.6rem;
     letter-spacing: 1px;
     line-height: 32px;
+    word-break: break-word;
 `;
 
 const AuthorsName = S.h6`
