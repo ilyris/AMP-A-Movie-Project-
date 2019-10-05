@@ -88,7 +88,7 @@
 
 .iconLinks {
     color: #fff;
-    font-size: 20px;
+    font-size: 1.4rem;
     width: 25%;
     display: flex;
     align-items: center;
@@ -98,7 +98,7 @@
 }
 
 .iconLinks svg {
-    font-size: 30px;
+    font-size: 2rem;
 }
 
 #hamburgerMenuContainer {

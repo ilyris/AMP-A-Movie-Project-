@@ -61,11 +61,9 @@
     }
     .navWrapper .title {
         padding: 0;
-        font-size: 2rem;
+        font-size: 3rem;
     }
-    .inputSearchField {
-        font-size: 1rem;
-    }
+
 }
 .userAccountLoginContainer {
     display: flex;
@@ -74,7 +72,7 @@
     width: 20%;
 }
 .styledReactLink {
-    font-size: 1.6rem;
+    font-size: 2rem;
     letter-spacing: .5px;
     color: #000;
     text-decoration: none;
@@ -97,7 +95,7 @@
     color: #fff;
 }
 .inputSearchField {
-    font-size: 1.4rem;
+    font-size: 2rem;
     border: none;
     border-bottom-left-radius: 25px;
     border-top-left-radius: 25px;

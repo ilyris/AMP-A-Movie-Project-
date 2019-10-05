@@ -47,7 +47,7 @@ const FooterContainer = S.div`
     justify-content: space-between;
 
     @media (max-width: 860px) {
-        margin-bottom: 75px;
+        margin-bottom: 55px;
       }
 `;
 const FooterLogo = S.h3`
