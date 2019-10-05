@@ -44,6 +44,10 @@
 .posterContainerDiv .movieDetailsParagraphText {
     line-height: unset;
 }
+/* MovieReview Section */ 
+.movieReviewContainer {
+    margin: 40px 0;
+}
 @media screen and (max-width: 860px) {
   .posterContainerDiv {
     margin: 0;
@@ -76,6 +80,7 @@
 .informationContainer {
   width: 90%;
   margin: 0 auto;
+  margin-top: 40px;
 }
 .informationContainer .movieDetailsParagraphText {
   color: #000;
