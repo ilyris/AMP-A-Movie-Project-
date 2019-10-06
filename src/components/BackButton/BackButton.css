@@ -1,0 +1,12 @@
+.backButton {
+    color: white;
+    font-size: 3rem;
+    position: relative;
+    top: 50px;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .backButton svg:hover {
+      cursor: pointer;
+      color: rgb(0, 143, 238);
+  }

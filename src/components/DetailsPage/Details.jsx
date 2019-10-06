@@ -4,8 +4,10 @@ import "./DetailsPage.css";
 import CastMemberSlideContainer from './CastMemberSlideContainer';
 import MovieReviewContainer from "./MovieReviewContainer";
 import YouTubeMovieTrailers from "./YouTubeMovieTrailers";
+import BackButton from "../BackButton/BackButton";
 
-const Details = ({match, location, api_Key}) =>  { 
+
+const Details = ({match, location, handleBackButton}) =>  { 
     const { title, overview, release_date ,poster_path, vote_average,backdrop_path} = location.state.movies;
 
     const posterImageURL = `https://image.tmdb.org/t/p/original${poster_path}`;
@@ -16,7 +18,7 @@ const Details = ({match, location, api_Key}) =>  {
     const [cast, setCast] = useState([]);
     const [reviews, setReviews] = useState([]);
     const [movieTrailers, setMovieTrailers] = useState([]);
-
+    
       useEffect( () => {
         const fetchMovieCredits = async () => {
             const getCreditResponse = await fetch(`${baseURL2}movie/${location.state.movies.id}/credits?api_key=${api_KeyDetails}`);
@@ -32,13 +34,13 @@ const Details = ({match, location, api_Key}) =>  {
             setMovieTrailers(getMovieTrailersData.results);
           };
         fetchMovieCredits();
-        {/* // eslint-disable-next-line */}
       }, [cast]);
     return  (
         <div>
             <div className= "heroSection">
                 <img className="backgroundPosterImage" alt="background poster of movie" src={backDropImage}></img>
                 <div className="backDropImageOverlay"></div>
+                <BackButton handleBackButton={handleBackButton}/>
                 <h2 className="styledH2">{title}</h2>
                 <div className="posterContainerDiv">
                     <img className="posterImage" alt="movie cover"src={posterImageURL}></img>

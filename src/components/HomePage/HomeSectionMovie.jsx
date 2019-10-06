@@ -24,7 +24,7 @@ const HomeSectionMovie = ({ movies, image }) => {
         <div className="aboutMovieContentContainer">
         <h2 className="titleHeading">{movies.title}</h2>
           <p className="movieRating">Rating: {movies.vote_average}</p>
-          <p className="movieLanguage">Langauge: {movies.original_language}</p>
+          <p className="movieLanguage">Langauge: {movies.original_language === "en" ? "englsh" : movies.original_language}</p>
         </div>
       </div>
     </Link>

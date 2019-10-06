@@ -36,6 +36,7 @@ const App = () => {
     setMovies(data.results);
   };
 
+
   const searchChange = event => setSearchField(event.target.value);
 
   const handleSubmit = event => {
@@ -46,12 +47,15 @@ const App = () => {
       }
     }
   }
-
   const handleOnClickSubmit = event =>  {
     if(pageNumber !== 1) {
       setPageNumber(1);
     }
     fetchApiCall();
+  }
+
+  const handleBackButton = event => {
+    return window.history.back();
   }
   return (
     <Router>
@@ -65,10 +69,10 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           {/* Pass in properties to the SearchPage component so it can render out the movies when a user searches for a movie. */}
-          <Route exact path ="/search" render={ props => <SearchPage {...props} movies={movies} fetchApiCall={fetchApiCall} handlePagination={handlePagination}/>} />
+          <Route exact path ="/search" render={ props => <SearchPage {...props} movies={movies} fetchApiCall={fetchApiCall} handlePagination={handlePagination} handleBackButton={handleBackButton} />}/>
           {/* set up the second parameter as the id and the first one as movie since we would navigate to another page,
            it would take up that argument in the URL and render the detail component. */}
-          <Route exact path="/details/movie/:id" render={props => <Details {...props} api_Key={api_Key} movieId={movies.id} baseUrl={baseURL} />} />
+          <Route exact path="/details/movie/:id" render={props => <Details {...props} api_Key={api_Key} movieId={movies.id} baseUrl={baseURL} handleBackButton={handleBackButton} />} />
         {/* <Route exact path ="/movies" component={Movies} /> */}
           <Route exact path="/discover" component={DiscoverPage} />
 
