@@ -6,7 +6,28 @@
     width: 80%;
     margin: 0 auto;
   }
-  .backButton svg:hover {
+  .backButton p {
+    align-items: center;
+    display: flex;
+    width: 150px;
+    overflow: hidden;
+  }
+  .backButton p:hover svg,
+  .background p:hover span {
       cursor: pointer;
       color: rgb(0, 143, 238);
   }
+  .backButton p:hover svg {
+    color: rgb(0, 143, 238);
+  }
+  .backButton p:hover span {
+    transform: translateX(0);
+    height: auto;
+}
+.backButton span {
+    padding-left: 20px;
+    font-size: 2rem;
+    transition: all ease-in-out 100ms;
+    transform: translateY(-30px);
+    cursor: pointer;
+}
