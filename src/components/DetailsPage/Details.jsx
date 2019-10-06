@@ -5,6 +5,7 @@ import CastMemberSlideContainer from './CastMemberSlideContainer';
 import MovieReviewContainer from "./MovieReviewContainer";
 import YouTubeMovieTrailers from "./YouTubeMovieTrailers";
 import BackButton from "../BackButton/BackButton";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
 
 const Details = ({match, location, handleBackButton}) =>  { 
@@ -40,8 +41,11 @@ const Details = ({match, location, handleBackButton}) =>  {
             <div className= "heroSection">
                 <img className="backgroundPosterImage" alt="background poster of movie" src={backDropImage}></img>
                 <div className="backDropImageOverlay"></div>
-                <BackButton handleBackButton={handleBackButton}/>
-                <h2 className="styledH2">{title}</h2>
+                <div className="functionalityContainer">
+                  <BackButton handleBackButton={handleBackButton}/>
+                  <h2 className="styledH2">{title}</h2>
+                  <FavoriteButton />
+                </div>
                 <div className="posterContainerDiv">
                     <img className="posterImage" alt="movie cover"src={posterImageURL}></img>
                     <p className="movieDetailsParagraphText"><span className="styledSpan">Released: </span> {release_date}</p>

@@ -53,6 +53,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
 }
 .paginationButton {
     margin: 0 20px;
