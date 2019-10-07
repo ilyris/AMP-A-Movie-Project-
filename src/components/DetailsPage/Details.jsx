@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from "react";
 import {withRouter} from 'react-router-dom';
 import "./DetailsPage.css";
+import {apiKey} from '../../config';
 import CastMemberSlideContainer from './CastMemberSlideContainer';
 import MovieReviewContainer from "./MovieReviewContainer";
 import YouTubeMovieTrailers from "./YouTubeMovieTrailers";
@@ -14,7 +15,6 @@ const Details = ({match, location, handleBackButton}) =>  {
     const posterImageURL = `https://image.tmdb.org/t/p/original${poster_path}`;
     const backDropImage = `https://image.tmdb.org/t/p/original${backdrop_path}`;
     const baseURL2 = 'https://api.themoviedb.org/3/';
-    const api_KeyDetails = process.env.REACT_APP_API_KEY;
 
     const [cast, setCast] = useState([]);
     const [reviews, setReviews] = useState([]);
@@ -22,15 +22,15 @@ const Details = ({match, location, handleBackButton}) =>  {
     
       useEffect( () => {
         const fetchMovieCredits = async () => {
-            const getCreditResponse = await fetch(`${baseURL2}movie/${location.state.movies.id}/credits?api_key=${api_KeyDetails}`);
+            const getCreditResponse = await fetch(`${baseURL2}movie/${location.state.movies.id}/credits?api_key=${apiKey}`);
             const creditResponseData = await getCreditResponse.json();
             setCast(creditResponseData.cast);
 
-            const getMovieReviewsResponse = await fetch(`${baseURL2}movie/${location.state.movies.id}/reviews?api_key=${api_KeyDetails}&language=en-US&page=1`);
+            const getMovieReviewsResponse = await fetch(`${baseURL2}movie/${location.state.movies.id}/reviews?api_key=${apiKey}&language=en-US&page=1`);
             const getMovieReviewsResponseData = await getMovieReviewsResponse.json();
             setReviews(getMovieReviewsResponseData.results);
 
-            const getMovieTrailersResponse = await fetch(`${baseURL2}movie/${location.state.movies.id}/videos?api_key=${api_KeyDetails}&language=en-US`);
+            const getMovieTrailersResponse = await fetch(`${baseURL2}movie/${location.state.movies.id}/videos?api_key=${apiKey}&language=en-US`);
             const getMovieTrailersData = await getMovieTrailersResponse.json();
             setMovieTrailers(getMovieTrailersData.results);
           };

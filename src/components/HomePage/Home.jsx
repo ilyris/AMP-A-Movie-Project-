@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import "../../App.css";
 import "./HomePage.css";
+import {apiKey} from '../../config';
 import MovieSliderContainer from "./MovieSliderContainer";
 
 const Home = () => {
@@ -11,19 +12,18 @@ const Home = () => {
 
 
   useEffect( () => {
-    const Homeapi_key = process.env.REACT_APP_API_KEY;
     const baseURL = 'https://api.themoviedb.org/3/';
 
     const fetchApiCall = async () => {
-      const getResponse = await fetch(`${baseURL}movie/top_rated?api_key=${Homeapi_key}&language=en-US&page=1`);
+      const getResponse = await fetch(`${baseURL}movie/top_rated?api_key=${apiKey}&language=en-US&page=1`);
       const data = await getResponse.json();
       setMovies(data.results);
 
-      const getNowPlayingResponse = await fetch(`${baseURL}movie/now_playing?api_key=${Homeapi_key}&language=en-US&page=1`);
+      const getNowPlayingResponse = await fetch(`${baseURL}movie/now_playing?api_key=${apiKey}&language=en-US&page=1`);
       const nowPlayingData = await getNowPlayingResponse.json();
       setNowPlayingMovies(nowPlayingData.results);
 
-      const getUpcomingMoviesResponse = await fetch(`${baseURL}movie/upcoming?api_key=${Homeapi_key}&language=en-US&page=1`);
+      const getUpcomingMoviesResponse = await fetch(`${baseURL}movie/upcoming?api_key=${apiKey}&language=en-US&page=1`);
       const upcomingMoviesData = await getUpcomingMoviesResponse.json();
       setUpcomingMovies(upcomingMoviesData.results);
     };

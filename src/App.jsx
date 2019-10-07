@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import "./App.css";
 import Details from './components/DetailsPage/Details';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {apiKey} from './config';
 
 import Home from './components/HomePage/Home';
 import Navigation from './components/Navigation/Navigation';
@@ -10,11 +11,10 @@ import SearchPage from './components/SearchPage/SearchPage';
 import DiscoverPage from './components/DiscoverPage/DiscoverPage';
 import PeoplePage from './components/PeoplePage/PeoplePage';
 import Footer from './components/Footer/Footer';
+import ScrollToTop from './ScrollToTop';
 
 
 const App = () => {
-  
-  const api_Key = process.env.REACT_APP_API_KEY;
   const baseURL = 'https://api.themoviedb.org/3/';
 
   const [movies, setMovies] = useState([]);
@@ -31,7 +31,7 @@ const App = () => {
     }
 }
   const fetchApiCall = async () => {
-    const getResponse = await fetch(`${baseURL}search/movie?api_key=${api_Key}&query=${searchfield}&page=${pageNumber}`);
+    const getResponse = await fetch(`${baseURL}search/movie?api_key=${apiKey}&query=${searchfield}&page=${pageNumber}`);
     const data = await getResponse.json();
     setMovies(data.results);
   };
@@ -59,6 +59,7 @@ const App = () => {
   }
   return (
     <Router>
+    <ScrollToTop>
     <div>
       <Navigation
           searchChange={searchChange}
@@ -72,7 +73,7 @@ const App = () => {
           <Route exact path ="/search" render={ props => <SearchPage {...props} movies={movies} fetchApiCall={fetchApiCall} handlePagination={handlePagination} handleBackButton={handleBackButton} />}/>
           {/* set up the second parameter as the id and the first one as movie since we would navigate to another page,
            it would take up that argument in the URL and render the detail component. */}
-          <Route exact path="/details/movie/:id" render={props => <Details {...props} api_Key={api_Key} movieId={movies.id} baseUrl={baseURL} handleBackButton={handleBackButton} />} />
+          <Route exact path="/details/movie/:id" render={props => <Details {...props} movieId={movies.id} baseUrl={baseURL} handleBackButton={handleBackButton} />} />
         {/* <Route exact path ="/movies" component={Movies} /> */}
           <Route exact path="/discover" component={DiscoverPage} />
 
@@ -80,6 +81,7 @@ const App = () => {
         </Switch>
         <Footer/>
     </div>
+    </ScrollToTop>
     </Router>
 
   );

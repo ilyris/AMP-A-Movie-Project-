@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import Movie from "../Movies/Movie";
+import {apiKey} from '../../config';
 
 import "./DiscoverPage.css";
 
@@ -11,7 +12,7 @@ const DiscoverPage = () => {
     const [discoverYear, setDiscoverYear] = useState(2019);
     const [pageNumber, setPageNumber] = useState(1);
 
-    const api_Key = process.env.REACT_APP_API_KEY;
+
     const baseURL = 'https://api.themoviedb.org/3/';
 
     
@@ -26,7 +27,7 @@ const DiscoverPage = () => {
     }
 
      const fetchDiscoverMovies = async () => {
-         const getResponse = await fetch(`${baseURL}discover/movie?api_key=${api_Key}&language=en-US&sort_by=${discoverSortBy}&include_adult=false&year=${discoverYear}&vote_average.gte=${discoverVoteAverage}&with_genres=${discoverGenre}&page=${pageNumber}`);
+         const getResponse = await fetch(`${baseURL}discover/movie?api_key=${apiKey}&language=en-US&sort_by=${discoverSortBy}&include_adult=false&year=${discoverYear}&vote_average.gte=${discoverVoteAverage}&with_genres=${discoverGenre}&page=${pageNumber}`);
          const data = await getResponse.json();
          console.log(data.results);
          setDiscoverMovies(data.results);
