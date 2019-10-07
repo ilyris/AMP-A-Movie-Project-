@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from "react";
 import {withRouter} from 'react-router-dom';
 import "./DetailsPage.css";
-import {apiKey} from '../../config';
+import {apiKey} from "../../config";
 import CastMemberSlideContainer from './CastMemberSlideContainer';
 import MovieReviewContainer from "./MovieReviewContainer";
 import YouTubeMovieTrailers from "./YouTubeMovieTrailers";
