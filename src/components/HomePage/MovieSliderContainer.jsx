@@ -13,6 +13,10 @@ const MovieSliderContainer = ({isSliderSmall, isHeroSectionComponent, movies,sli
       observer: true,
       slidesPerView: 1,
       spaceBetween: 0,
+      shortSwipes : false,
+      moveStartThreshold:false,
+      longSwipes: true,
+      longSwipesRatio: 0.3,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
