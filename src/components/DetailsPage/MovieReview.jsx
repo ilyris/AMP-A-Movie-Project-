@@ -34,7 +34,7 @@ const ParagraphContent = S.p`
 `;
 
 const AuthorsName = S.h6`
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #000;
     padding-bottom: 20px;
 `;

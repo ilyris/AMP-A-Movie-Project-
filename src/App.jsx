@@ -9,7 +9,6 @@ import Navigation from './components/Navigation/Navigation';
 import MobileMenu from './components/MobileMenu/MobileMenu';
 import SearchPage from './components/SearchPage/SearchPage';
 import DiscoverPage from './components/DiscoverPage/DiscoverPage';
-import PeoplePage from './components/PeoplePage/PeoplePage';
 import Footer from './components/Footer/Footer';
 import ScrollToTop from './ScrollToTop';
 
@@ -77,7 +76,6 @@ const App = () => {
         {/* <Route exact path ="/movies" component={Movies} /> */}
           <Route exact path="/discover" component={DiscoverPage} />
 
-          <Route exact path="/people" component={PeoplePage} />
         </Switch>
         <Footer/>
     </div>

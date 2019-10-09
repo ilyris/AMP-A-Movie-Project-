@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faSearch, faHome, faCompass } from '@fortawesome/free-solid-svg-icons';
 
 import "./Navigation.css";
 
@@ -9,21 +9,7 @@ const Navigation = ({searchChange, handleSubmit, handleOnClickSubmit}) => {
     return(
         <nav className="navWrapper">
             <div className="farLeftLinkWrapper">
-            <h1 className='title' id="companyName">AMP</h1>
-            <ul className="mainUl">
-                <li className='mainListLinks'>
-                    <Link className='styledReactLink' to="/">Home</Link>
-                </li>
-                <li className='mainListLinks'>
-                    <Link className='styledReactLink' to="/movies">Movies</Link>
-                </li>
-                <li className='mainListLinks'>
-                    <Link className='styledReactLink' to="/discover">Discover</Link>
-                </li>
-                <li className='mainListLinks'>
-                    <Link className='styledReactLink' to="/people">People</Link>
-                </li>
-            </ul>
+            <Link className='styledReactLink' to="/"><h1 className='title' id="companyName">AMP</h1></Link>
             </div>
             
             <div className='searchBoxWrapper'>
@@ -37,7 +23,16 @@ const Navigation = ({searchChange, handleSubmit, handleOnClickSubmit}) => {
 
         </div>
             <div className='userAccountLoginContainer'>
+            <li className='mainListLinks'>
+                <Link className='styledReactLink' to="/"><FontAwesomeIcon icon={faHome}/></Link>
+            </li>
+            <li className='mainListLinks'>
                 <Link className='styledReactLink' to="/user"><FontAwesomeIcon icon={faUser}/></Link>
+            </li>
+
+            <li className='mainListLinks'>
+                <Link className='styledReactLink' to="/discover"><FontAwesomeIcon icon={faCompass}/></Link>
+            </li>
             </div>
         </nav>
     );
