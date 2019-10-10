@@ -17,12 +17,11 @@ const UserLogin = () => {
         .catch( (error)=>{
             console.log(error);
         });
-        Axios.get(`https://www.themoviedb.org/authenticate/${token}?redirect_to=http://amovieproject.netlify.com/user/approved`)
+        Axios.get("https://www.themoviedb.org/authenticate/"+token+"?redirect_to=http://amovieproject.netlify.com/approved")
         .then( (getAuthResponse) =>{
             console.log(getAuthResponse);
         })
     };
-    console.log(token);
 
     return(
         <SLoginPageContainer>
