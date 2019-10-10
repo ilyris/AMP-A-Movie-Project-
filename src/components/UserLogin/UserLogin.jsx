@@ -27,7 +27,7 @@ const UserLogin = () => {
                 <LoginHeading>Guests have limited access</LoginHeading>
                 </TextContentContainer>
                 <SLoginContainer>
-                    <SLoginButton onClick={requestToken} href={`https://www.themoviedb.org/authenticate/${token}?redirect_to=http://localhost:3000/user/approved`}>
+                    <SLoginButton onClick={requestToken} href={`https://www.themoviedb.org/authenticate/${token}?redirect_to=https://amovieproject.netlify.com/user/approved`}>
                             Log In
                     </SLoginButton>
                     <SLoginButton>Guest Log In</SLoginButton>
