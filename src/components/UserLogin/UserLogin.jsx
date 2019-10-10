@@ -5,36 +5,33 @@ import Axios from 'axios';
 
 const UserLogin = () => {
 
-    const [token, setToken] = useState("");
+    // Need to store token in local storage since the token in state acts weird.
+    const token = localStorage.getItem("token");
 
     const requestToken = () => {
-
         Axios.get(`https://api.themoviedb.org/3/authentication/token/new?api_key=${apiKey}`)
-        .then((getTokenResponse)=> {
-            setToken(getTokenResponse.data.request_token);
-            
+        .then( (getTokenResponse) => {
+            localStorage.setItem("token", getTokenResponse.data.request_token);
         })
         .catch( (error)=>{
             console.log(error);
         });
-        Axios.get("https://www.themoviedb.org/authenticate/"+token+"?redirect_to=http://amovieproject.netlify.com/approved")
-        .then( (getAuthResponse) =>{
-            console.log(getAuthResponse);
-        })
-    };
 
+    };  
     return(
         <SLoginPageContainer>
             <HalfPageContainer>
                 <TextContentContainer>
-                <S_h1>Log In</S_h1>
+                <Sh1>Log In</Sh1>
                 <LoginHeading>AMP</LoginHeading>
                 <LoginHeading>Guests have limited access</LoginHeading>
                 </TextContentContainer>
-                <S_LoginContainer>
-                    <S_LoginButton onClick={requestToken}>Log In</S_LoginButton>
-                    <S_LoginButton>Guest Log In</S_LoginButton>
-                </S_LoginContainer>
+                <SLoginContainer>
+                    <SLoginButton onClick={requestToken} href={`https://www.themoviedb.org/authenticate/${token}?redirect_to=http://localhost:3000/user/approved`}>
+                            Log In
+                    </SLoginButton>
+                    <SLoginButton>Guest Log In</SLoginButton>
+                </SLoginContainer>
             </HalfPageContainer>
             <SecondHalfContainerImage src={require('./movieLoginBackground.jpg')}></SecondHalfContainerImage>
         </SLoginPageContainer>
@@ -65,7 +62,7 @@ const TextContentContainer = S.div`
     border-bottom: 3px solid #000;
     width: 100%;
 `;
-const S_h1 = S.h1`
+const Sh1 = S.h1`
     font-size: 6rem;
     width: 80%;
     margin: 0 auto;
@@ -79,7 +76,7 @@ const LoginHeading = S.h3`
     text-align: center;
     padding: 20px 0;
 `;
-const S_LoginContainer = S.div`
+const SLoginContainer = S.div`
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
@@ -87,7 +84,22 @@ const S_LoginContainer = S.div`
     padding: 20px;
 `;
 
-const S_LoginButton = S.a`
+const SLoginButton = S.a`
+background-color: #008fee;
+color: #fff;
+width: 200px;
+padding: 20px;
+font-size: 2rem;
+margin: 20px auto;
+text-align: center;
+transition: all ease-in-out 120ms;
+:hover {
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+}
+`;
+const Sbutton = S.button`
     background-color: #008fee;
     color: #fff;
     width: 200px;
@@ -96,7 +108,6 @@ const S_LoginButton = S.a`
     margin: 20px auto;
     text-align: center;
     transition: all ease-in-out 120ms;
-
     :hover {
         cursor: pointer;
         background-color: #000;
