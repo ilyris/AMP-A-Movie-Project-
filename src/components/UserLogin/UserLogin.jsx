@@ -17,7 +17,7 @@ const UserLogin = () => {
         .catch( (error)=>{
             console.log(error);
         });
-        Axios.get(`https://www.themoviedb.org/authenticate/${token}?redirect_to=http://localhost:3000/user`)
+        Axios.get(`https://www.themoviedb.org/authenticate/${token}?redirect_to=https://amovieproject.netlify.com`)
         .then( (getAuthResponse) =>{
             console.log(getAuthResponse);
         })
