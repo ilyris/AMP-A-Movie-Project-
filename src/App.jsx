@@ -10,6 +10,7 @@ import MobileMenu from './components/MobileMenu/MobileMenu';
 import SearchPage from './components/SearchPage/SearchPage';
 import DiscoverPage from './components/DiscoverPage/DiscoverPage';
 import Footer from './components/Footer/Footer';
+import UserLogin from "./components/UserLogin/UserLogin";
 import ScrollToTop from './ScrollToTop';
 
 
@@ -75,6 +76,7 @@ const App = () => {
           <Route exact path="/details/movie/:id" render={props => <Details {...props} movieId={movies.id} baseUrl={baseURL} handleBackButton={handleBackButton} />} />
         {/* <Route exact path ="/movies" component={Movies} /> */}
           <Route exact path="/discover" component={DiscoverPage} />
+          <Route exact path="/user" component={UserLogin} />
 
         </Switch>
         <Footer/>
