@@ -32,7 +32,7 @@ const UserLogin = () => {
                 <LoginHeading>Guests have limited access</LoginHeading>
                 </TextContentContainer>
                 <S_LoginContainer>
-                    <S_LoginButton onClick={requestToken}>Log In</S_LoginButton>
+                    <S_LoginButton href={`https://www.themoviedb.org/authenticate/${token}?redirect_to=http://amovieproject.netlify.com/approved`} onClick={requestToken}>Log In</S_LoginButton>
                     <S_LoginButton>Guest Log In</S_LoginButton>
                 </S_LoginContainer>
             </HalfPageContainer>
