@@ -4,7 +4,7 @@ import {apiKey} from '../../config';
 import Axios from 'axios';
 import {Link} from "react-router-dom";
 
-const UserLogin = ({createGuestSession, guestSessionId}) => {
+const UserLogin = ({createGuestSession, guestSessionID}) => {
 
     // Need to store token in local storage since the token in state acts weird.
     const token = localStorage.getItem("token");
@@ -18,7 +18,7 @@ const UserLogin = ({createGuestSession, guestSessionId}) => {
             console.log(error);
         });
     };  
-    console.log(guestSessionId);
+    console.log(guestSessionID);
     return(
         <SLoginPageContainer>
             <HalfPageContainer>
@@ -31,7 +31,7 @@ const UserLogin = ({createGuestSession, guestSessionId}) => {
                     <SLoginButton onClick={requestToken} href={`https://www.themoviedb.org/authenticate/${token}?redirect_to=https://amovieproject.netlify.com/user/approved`}>
                             Log In
                     </SLoginButton>
-                    <SLink to="/profile/guest"onClick={createGuestSession}>Guest Log In</SLink>
+                    <SLink to="/profile/guest" onClick={createGuestSession}>Guest Log In</SLink>
                 </SLoginContainer>
             </HalfPageContainer>
             <SecondHalfContainerImage src={require('./movieLoginBackground.jpg')}></SecondHalfContainerImage>
@@ -113,6 +113,9 @@ const SLink = S(Link)`
         background-color: #000;
         color: #fff;
     }
+`;
+const Sbutton = S.button `
+    border: none;
 `;
 const SecondHalfContainerImage = S.img`
     width: 50%;

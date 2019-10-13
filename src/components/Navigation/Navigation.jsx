@@ -5,7 +5,8 @@ import { faUser, faSearch, faHome, faCompass } from '@fortawesome/free-solid-svg
 
 import "./Navigation.css";
 
-const Navigation = ({searchChange, handleSubmit, handleOnClickSubmit}) => {
+const Navigation = ({searchChange, handleSubmit, handleOnClickSubmit, guestSessionID}) => {
+    console.log(guestSessionID);
     return(
         <nav className="navWrapper">
             <div className="farLeftLinkWrapper">
@@ -27,7 +28,8 @@ const Navigation = ({searchChange, handleSubmit, handleOnClickSubmit}) => {
                 <Link className='styledReactLink' to="/"><FontAwesomeIcon icon={faHome}/></Link>
             </li>
             <li className='mainListLinks'>
-                <Link className='styledReactLink' to="/login"><FontAwesomeIcon icon={faUser}/></Link>
+                {guestSessionID === '' || guestSessionID === undefined  ? <Link className='styledReactLink' to="/login"><FontAwesomeIcon icon={faUser}/> </Link>  : <Link className='styledReactLink' to="/profile/guest"><FontAwesomeIcon icon={faUser}/></Link>}
+                {/* <Link className='styledReactLink' to="/login"><FontAwesomeIcon icon={faUser}/></Link> */}
             </li>
 
             <li className='mainListLinks'>
