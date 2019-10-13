@@ -3,8 +3,10 @@ import "./App.css";
 import Details from './components/DetailsPage/Details';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {apiKey} from './config';
+import axios from "axios";
 
 import Home from './components/HomePage/Home';
+import GuestProfile from './components/Profiles/GuestProfile';
 import Navigation from './components/Navigation/Navigation';
 import MobileMenu from './components/MobileMenu/MobileMenu';
 import SearchPage from './components/SearchPage/SearchPage';
@@ -16,6 +18,8 @@ import ScrollToTop from './ScrollToTop';
 
 const App = () => {
   const baseURL = 'https://api.themoviedb.org/3/';
+  const guestSessionId = localStorage.getItem("guestSessionID");
+
 
   const [movies, setMovies] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
@@ -57,6 +61,25 @@ const App = () => {
   const handleBackButton = event => {
     return window.history.back();
   }
+  const createGuestSession = () => {
+    axios.get(`https://api.themoviedb.org/3/authentication/guest_session/new?api_key=${apiKey}`)
+    .then((response) => {
+        localStorage.setItem("guestSessionID", response.data.guest_session_id); 
+    })
+    .catch(( error) => {
+        console.log(error);
+    });
+}
+  const handleLogOut = () => {
+    axios.get(`${baseURL}/authentication/session?api_key=${apiKey}`)
+    .then( response => {
+      console.log(response);
+      return response;
+    })
+    .catch( error => {
+      console.log(error);
+    })
+  }
   return (
     <Router>
     <ScrollToTop>
@@ -76,7 +99,8 @@ const App = () => {
           <Route exact path="/details/movie/:id" render={props => <Details {...props} movieId={movies.id} baseUrl={baseURL} handleBackButton={handleBackButton} />} />
         {/* <Route exact path ="/movies" component={Movies} /> */}
           <Route exact path="/discover" component={DiscoverPage} />
-          <Route exact path="/user" component={UserLogin} />
+          <Route exact path="/login" render={props => <UserLogin {...props} createGuestSession={createGuestSession}  guestSessionId={guestSessionId}/> } />
+          <Route exact path="/profile/guest" render={props => <GuestProfile {...props} username={"Guest"} handleLogOut={handleLogOut}/> } />
 
         </Switch>
         <Footer/>

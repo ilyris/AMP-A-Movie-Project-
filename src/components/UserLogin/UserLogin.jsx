@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import S from 'styled-components';
 import {apiKey} from '../../config';
 import Axios from 'axios';
+import {Link} from "react-router-dom";
 
-const UserLogin = () => {
+const UserLogin = ({createGuestSession, guestSessionId}) => {
 
     // Need to store token in local storage since the token in state acts weird.
     const token = localStorage.getItem("token");
@@ -16,8 +17,8 @@ const UserLogin = () => {
         .catch( (error)=>{
             console.log(error);
         });
-
     };  
+    console.log(guestSessionId);
     return(
         <SLoginPageContainer>
             <HalfPageContainer>
@@ -30,12 +31,11 @@ const UserLogin = () => {
                     <SLoginButton onClick={requestToken} href={`https://www.themoviedb.org/authenticate/${token}?redirect_to=https://amovieproject.netlify.com/user/approved`}>
                             Log In
                     </SLoginButton>
-                    <SLoginButton>Guest Log In</SLoginButton>
+                    <SLink to="/profile/guest"onClick={createGuestSession}>Guest Log In</SLink>
                 </SLoginContainer>
             </HalfPageContainer>
             <SecondHalfContainerImage src={require('./movieLoginBackground.jpg')}></SecondHalfContainerImage>
         </SLoginPageContainer>
-
     );
 }
 export default UserLogin;
@@ -99,7 +99,7 @@ transition: all ease-in-out 120ms;
     color: #fff;
 }
 `;
-const Sbutton = S.button`
+const SLink = S(Link)`
     background-color: #008fee;
     color: #fff;
     width: 200px;

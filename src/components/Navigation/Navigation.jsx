@@ -27,7 +27,7 @@ const Navigation = ({searchChange, handleSubmit, handleOnClickSubmit}) => {
                 <Link className='styledReactLink' to="/"><FontAwesomeIcon icon={faHome}/></Link>
             </li>
             <li className='mainListLinks'>
-                <Link className='styledReactLink' to="/user"><FontAwesomeIcon icon={faUser}/></Link>
+                <Link className='styledReactLink' to="/login"><FontAwesomeIcon icon={faUser}/></Link>
             </li>
 
             <li className='mainListLinks'>
