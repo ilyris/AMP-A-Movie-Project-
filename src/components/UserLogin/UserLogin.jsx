@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import S from 'styled-components';
 import {apiKey} from '../../config';
 import Axios from 'axios';
@@ -85,19 +85,19 @@ const SLoginContainer = S.div`
 `;
 
 const SLoginButton = S.a`
-background-color: #008fee;
-color: #fff;
-width: 200px;
-padding: 20px;
-font-size: 2rem;
-margin: 20px auto;
-text-align: center;
-transition: all ease-in-out 120ms;
-:hover {
-    cursor: pointer;
-    background-color: #000;
+    background-color: #008fee;
     color: #fff;
-}
+    width: 200px;
+    padding: 20px;
+    font-size: 2rem;
+    margin: 20px auto;
+    text-align: center;
+    transition: all ease-in-out 120ms;
+    :hover {
+        cursor: pointer;
+        background-color: #000;
+        color: #fff;
+    }
 `;
 const SLink = S(Link)`
     background-color: #008fee;
@@ -114,9 +114,7 @@ const SLink = S(Link)`
         color: #fff;
     }
 `;
-const Sbutton = S.button `
-    border: none;
-`;
+
 const SecondHalfContainerImage = S.img`
     width: 50%;
     height: 100%;

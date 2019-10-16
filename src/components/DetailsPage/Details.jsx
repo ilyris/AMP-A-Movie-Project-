@@ -35,7 +35,7 @@ const Details = ({match, location, handleBackButton}) =>  {
             setMovieTrailers(getMovieTrailersData.results);
           };
         fetchMovieCredits();
-      }, [cast]);
+      }, []);
     return  (
         <div>
             <div className= "heroSection">
@@ -58,17 +58,7 @@ const Details = ({match, location, handleBackButton}) =>  {
             </div>
             <div className="TrailerContainer">
               <h2 className="sliderTitle">Trailers</h2>
-              {movieTrailers.map( (movieTrailers, index) => {
-                if(index < 3) {
-                  return(
-                  <YouTubeMovieTrailers
-                    trailerKey={movieTrailers.key}
-                    key={index}
-                  />
-                  );
-                } return null;
-
-          })}
+              {movieTrailers.map((movieTrailers, index) => index < 3 ? <YouTubeMovieTrailers trailerKey={movieTrailers.key} key={index}/> : null)}
           </div>
             <CastMemberSlideContainer cast={cast} sliderTitle={"Cast Members"}/>
             <div className="movieReviewContainer">

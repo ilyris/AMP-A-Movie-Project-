@@ -14,6 +14,7 @@ import DiscoverPage from './components/DiscoverPage/DiscoverPage';
 import Footer from './components/Footer/Footer';
 import UserLogin from "./components/UserLogin/UserLogin";
 import ScrollToTop from './ScrollToTop';
+import PersonPage from './components/PersonPage/PersonPage';
 
 
 const App = () => {
@@ -40,6 +41,7 @@ const App = () => {
     const data = await getResponse.json();
     setMovies(data.results);
   };
+
 
 
   const searchChange = event => setSearchField(event.target.value);
@@ -100,14 +102,14 @@ const App = () => {
           {/* set up the second parameter as the id and the first one as movie since we would navigate to another page,
            it would take up that argument in the URL and render the detail component. */}
           <Route exact path="/details/movie/:id" render={props => <Details {...props} movieId={movies.id} baseUrl={baseURL} handleBackButton={handleBackButton} />} />
-        {/* <Route exact path ="/movies" component={Movies} /> */}
           <Route exact path="/discover" component={DiscoverPage} />
           <Route exact path="/login" render={props => <UserLogin {...props} createGuestSession={createGuestSession}  guestSessionID={guestSessionID}/> } />
           <Route exact path="/profile/guest" render={props => <GuestProfile {...props} username={"Guest"} handleLogOut={handleLogOut}/> } />
+          <Route exact path ="/details/cast/:id" render={props => <PersonPage {...props}  /> } />
 
         </Switch>
         <Footer/>
-    </div>
+      </div>
     </ScrollToTop>
     </Router>
 
