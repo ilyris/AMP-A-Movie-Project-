@@ -34,7 +34,6 @@ const PersonName = S.h2`
 const PersonContainer = S.div`
     display: flex;
     flex-direction: column;
-
 `;
 
 const PersonProfileImage = S.img`

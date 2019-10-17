@@ -4,6 +4,7 @@ import {apiKey} from "../../config";
 import axios from 'axios';
 
 import Person from './Person';
+import PersonsAssociatedMovies from './PersonsAssociatedMovies';
 
 
 
@@ -35,6 +36,7 @@ const PersonPage = (props) => {
        <PersonPageMainWrapper>
         <HeroSection>
             <Person castMember={castMember}/>
+            <PersonsAssociatedMovies movies={castMemberMovies}/>
         </HeroSection>
        </PersonPageMainWrapper>
     );
@@ -45,7 +47,6 @@ export default PersonPage;
 
 const PersonPageMainWrapper = S.section`
     width: 100%;
-
 `;
 
 const HeroSection = S.div`
