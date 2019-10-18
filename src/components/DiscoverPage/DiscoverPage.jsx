@@ -4,13 +4,13 @@ import {apiKey} from '../../config';
 
 import "./DiscoverPage.css";
 
-const DiscoverPage = () => {
+const DiscoverPage = ({handleBackButton}) => {
     const [discoverMovies, setDiscoverMovies] = useState([]);
     const [discoverVoteAverage, setDiscoverVoteAverage] = useState('');
     const [discoverSortBy, setDiscoverSortBy] = useState('popularity.desc');
     const [discoverGenre, setDiscoverGenre] = useState('');
     const [discoverYear, setDiscoverYear] = useState(2019);
-    const [pageNumber, setPageNumber] = useState(1);
+    let [pageNumber, setPageNumber] = useState(1);
 
 
     const baseURL = 'https://api.themoviedb.org/3/';
@@ -18,18 +18,23 @@ const DiscoverPage = () => {
     
     const handlePagination = pageTransitionValue => {
         if( pageNumber === 1 && pageTransitionValue === "-") {
+          console.log("page number stays 1 since were on the first page and hit the back button");
             setPageNumber(1);
+            console.log(pageNumber);
         } else if(pageTransitionValue === "+") {
-           setPageNumber(pageNumber + 1);
+           setPageNumber(pageNumber++);
+           console.log('page number was incremented by one since we clicked the next button');
+           console.log(pageNumber);
         } else if(pageTransitionValue === "-") {
-           setPageNumber(pageNumber - 1);
+          console.log('page number decreased by one since we clicked the previous button');
+          console.log(pageNumber);
+           setPageNumber(pageNumber--);
         }
-    }
+      }
 
      const fetchDiscoverMovies = async () => {
          const getResponse = await fetch(`${baseURL}discover/movie?api_key=${apiKey}&language=en-US&sort_by=${discoverSortBy}&include_adult=false&year=${discoverYear}&vote_average.gte=${discoverVoteAverage}&with_genres=${discoverGenre}&page=${pageNumber}`);
          const data = await getResponse.json();
-         console.log(data.results);
          setDiscoverMovies(data.results);
      }
 
@@ -40,7 +45,6 @@ const DiscoverPage = () => {
 
      const handleDiscoverSearch = event =>  {
          fetchDiscoverMovies();
-         console.log(discoverMovies);
      }
 
      

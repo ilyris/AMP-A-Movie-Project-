@@ -22,24 +22,31 @@ const App = () => {
 
 
   const [movies, setMovies] = useState([]);
-  const [pageNumber, setPageNumber] = useState(1);
+  let [pageNumber, setPageNumber] = useState(1);
   const [searchfield, setSearchField] = useState('');
   const [guestSessionID, setGuestSessionID] = useState('');
 
 
   const handlePagination = pageTransitionValue => {
     if( pageNumber === 1 && pageTransitionValue === "-") {
+      console.log("page number stays 1 since were on the first page and hit the back button");
         setPageNumber(1);
+        console.log(pageNumber);
     } else if(pageTransitionValue === "+") {
        setPageNumber(pageNumber + 1);
+       console.log('page number was incremented by one since we clicked the next button');
+       console.log(pageNumber);
     } else if(pageTransitionValue === "-") {
+      console.log('page number decreased by one since we clicked the previous button');
+      console.log(pageNumber);
        setPageNumber(pageNumber - 1);
     }
-}
+  }
   const fetchApiCall = async () => {
     const getResponse = await fetch(`${baseURL}search/movie?api_key=${apiKey}&query=${searchfield}&page=${pageNumber}`);
     const data = await getResponse.json();
     setMovies(data.results);
+    console.log('The fetch api was called!');
   };
 
 
@@ -74,15 +81,7 @@ const App = () => {
     });
 }
   const handleLogOut = () => {
-    // axios.delete(`${baseURL}authentication/session/?api_key=${apiKey}`)
-    // .then( response => {
-    //   console.log(response);
-    // })
-    // .catch( error => {
-    //   console.log(error);
-    // })
     return setGuestSessionID('');
-
   }
   return (
     <Router>
@@ -98,11 +97,11 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           {/* Pass in properties to the SearchPage component so it can render out the movies when a user searches for a movie. */}
-          <Route exact path ="/search" render={ props => <SearchPage {...props} movies={movies} fetchApiCall={fetchApiCall} handlePagination={handlePagination} handleBackButton={handleBackButton} />}/>
+          <Route exact path ="/search" render={ props => <SearchPage {...props} movies={movies} fetchApiCall={fetchApiCall} handlePagination={handlePagination} handleBackButton={handleBackButton} pageNumber={pageNumber} />}/>
           {/* set up the second parameter as the id and the first one as movie since we would navigate to another page,
            it would take up that argument in the URL and render the detail component. */}
           <Route exact path="/details/movie/:id" render={props => <Details {...props} movieId={movies.id} baseUrl={baseURL} handleBackButton={handleBackButton} />} />
-          <Route exact path="/discover" component={DiscoverPage} />
+          <Route exact path="/discover" render={ props => <DiscoverPage {...props} handleBackButton={handleBackButton} />}/>
           <Route exact path="/login" render={props => <UserLogin {...props} createGuestSession={createGuestSession}  guestSessionID={guestSessionID}/> } />
           <Route exact path="/profile/guest" render={props => <GuestProfile {...props} username={"Guest"} handleLogOut={handleLogOut}/> } />
           <Route exact path ="/details/cast/:id" render={props => <PersonPage {...props}  /> } />

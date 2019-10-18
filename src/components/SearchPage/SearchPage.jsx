@@ -2,11 +2,12 @@ import React from "react";
 import Movie from "../Movies/Movie";
 import "./SearchPage.css";
 
-export default function SearchPage({movies,fetchApiCall, handlePagination}) {
+export default function SearchPage({movies,fetchApiCall, handlePagination, pageNumber}) {
 
     return(
       <div className="appWrapper">
         <div className="movieWrapper">
+        <h1>{pageNumber}</h1>
           {movies.map(movies => {
             return (
               <Movie
@@ -22,7 +23,7 @@ export default function SearchPage({movies,fetchApiCall, handlePagination}) {
         <div className="paginationButtonContainer" onClick={fetchApiCall}>
                 <button className="paginationButton prev" onClick={() => handlePagination("-")}>Prev</button>
                 <button className="paginationButton next" onClick={() => handlePagination("+")}>Next</button>
-            </div>
+        </div>
       </div>
     )
   }

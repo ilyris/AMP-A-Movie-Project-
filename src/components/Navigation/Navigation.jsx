@@ -6,7 +6,6 @@ import { faUser, faSearch, faHome, faCompass } from '@fortawesome/free-solid-svg
 import "./Navigation.css";
 
 const Navigation = ({searchChange, handleSubmit, handleOnClickSubmit, guestSessionID}) => {
-    console.log(guestSessionID);
     return(
         <nav className="navWrapper">
             <div className="farLeftLinkWrapper">
