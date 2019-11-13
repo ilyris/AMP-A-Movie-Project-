@@ -1,9 +1,11 @@
-import React, {useState} from "react";
+import React, {useState, useEffect, useCallback} from "react";
 import "./App.css";
 import Details from './components/DetailsPage/Details';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import {apiKey} from './config';
+import history from './history';
 import axios from "axios";
+
 
 import Home from './components/HomePage/Home';
 import GuestProfile from './components/Profiles/GuestProfile';
@@ -18,59 +20,41 @@ import PersonPage from './components/PersonPage/PersonPage';
 
 
 const App = () => {
+
+
   const baseURL = 'https://api.themoviedb.org/3/';
-
-
   const [movies, setMovies] = useState([]);
-  let [pageNumber, setPageNumber] = useState(1);
-  const [searchfield, setSearchField] = useState('');
+  // const [pageNumber, setPageNumber] = useState(1);
+  // const [searchQuery, setSearchQuery] = useState('');
   const [guestSessionID, setGuestSessionID] = useState('');
 
 
-  const handlePagination = pageTransitionValue => {
-    if( pageNumber === 1 && pageTransitionValue === "-") {
-      console.log("page number stays 1 since were on the first page and hit the back button");
-        setPageNumber(1);
-        console.log(pageNumber);
-    } else if(pageTransitionValue === "+") {
-       setPageNumber(pageNumber + 1);
-       console.log('page number was incremented by one since we clicked the next button');
-       console.log(pageNumber);
-    } else if(pageTransitionValue === "-") {
-      console.log('page number decreased by one since we clicked the previous button');
-      console.log(pageNumber);
-       setPageNumber(pageNumber - 1);
-    }
+  const handlePagination =  async (newPageNumber, query) => {
+    if( newPageNumber < 1) return;
+    const {results, total_pages} = await fetchApiCall(query, newPageNumber);
+    if(newPageNumber > total_pages) return;
+
+    setMovies(results);
+    history.push(`/search/${newPageNumber}`, query);
   }
-  const fetchApiCall = async () => {
-    const getResponse = await fetch(`${baseURL}search/movie?api_key=${apiKey}&query=${searchfield}&page=${pageNumber}`);
+
+  const fetchApiCall =  useCallback(async (searchQuery, pageNumber = 1) => {
+    const getResponse = await fetch(`${baseURL}search/movie?api_key=${apiKey}&query=${searchQuery}&page=${pageNumber}`);
     const data = await getResponse.json();
-    setMovies(data.results);
-    console.log('The fetch api was called!');
-  };
+    return data;
+    
+  }, []);
 
-
-
-  const searchChange = event => setSearchField(event.target.value);
-
-  const handleSubmit = event => {
-    if(event.key === 'Enter') {
-       fetchApiCall();
-       if(pageNumber > 1) {
-        setPageNumber(1);
-      }
-    }
-  }
-  const handleOnClickSubmit = event =>  {
-    if(pageNumber !== 1) {
-      setPageNumber(1);
-    }
-    fetchApiCall();
+  const onSubmit =  async (query) => {
+    const {results} = await fetchApiCall(query);
+    setMovies(results);
+    history.push('/search/1', query );
   }
 
   const handleBackButton = event => {
     return window.history.back();
   }
+
   const createGuestSession = () => {
     axios.get(`https://api.themoviedb.org/3/authentication/guest_session/new?api_key=${apiKey}`)
     .then((response) => {
@@ -83,21 +67,28 @@ const App = () => {
   const handleLogOut = () => {
     return setGuestSessionID('');
   }
+
+  // useEffect( () => {
+  //   (async function() {
+  //     const searchedMovies = await fetchApiCall();
+  //     console.log(searchedMovies);
+  //     setMovies(searchedMovies);
+  //   })();
+  // },[pageNumber, fetchApiCall]);
+
   return (
-    <Router>
+    <>
     <ScrollToTop>
     <div>
       <Navigation
-          searchChange={searchChange}
-          handleOnClickSubmit={handleOnClickSubmit}
-          handleSubmit={handleSubmit}
           guestSessionID={guestSessionID}
+          onSubmit={onSubmit}
         />
         <MobileMenu />
         <Switch>
           <Route exact path="/" component={Home} />
           {/* Pass in properties to the SearchPage component so it can render out the movies when a user searches for a movie. */}
-          <Route exact path ="/search" render={ props => <SearchPage {...props} movies={movies} fetchApiCall={fetchApiCall} handlePagination={handlePagination} handleBackButton={handleBackButton} pageNumber={pageNumber} />}/>
+          <Route exact path ="/search/:id" render={ props => <SearchPage {...props} movies={movies} handlePagination={handlePagination} handleBackButton={handleBackButton} />}/>
           {/* set up the second parameter as the id and the first one as movie since we would navigate to another page,
            it would take up that argument in the URL and render the detail component. */}
           <Route exact path="/details/movie/:id" render={props => <Details {...props} movieId={movies.id} baseUrl={baseURL} handleBackButton={handleBackButton} />} />
@@ -108,9 +99,9 @@ const App = () => {
 
         </Switch>
         <Footer/>
-      </div>
+    </div>
     </ScrollToTop>
-    </Router>
+    </>
 
   );
 };

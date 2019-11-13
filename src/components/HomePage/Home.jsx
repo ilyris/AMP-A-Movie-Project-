@@ -14,7 +14,8 @@ const Home = () => {
   useEffect( () => {
     const baseURL = 'https://api.themoviedb.org/3/';
 
-    const fetchApiCall = async () => {
+    const fetchApiCall = async () => { 
+      // put all these calls into seperate functions
       const getResponse = await fetch(`${baseURL}movie/top_rated?api_key=${apiKey}&language=en-US&page=1`);
       const data = await getResponse.json();
       setMovies(data.results);

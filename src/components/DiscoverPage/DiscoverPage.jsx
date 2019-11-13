@@ -10,7 +10,7 @@ const DiscoverPage = ({handleBackButton}) => {
     const [discoverSortBy, setDiscoverSortBy] = useState('popularity.desc');
     const [discoverGenre, setDiscoverGenre] = useState('');
     const [discoverYear, setDiscoverYear] = useState(2019);
-    let [pageNumber, setPageNumber] = useState(1);
+    const [pageNumber, setPageNumber] = useState(1);
 
 
     const baseURL = 'https://api.themoviedb.org/3/';
@@ -44,12 +44,10 @@ const DiscoverPage = ({handleBackButton}) => {
      const handleYear = event => setDiscoverYear(event.target.value);
 
      const handleDiscoverSearch = event =>  {
-         fetchDiscoverMovies();
+        fetchDiscoverMovies();
      }
 
-     
-
-
+    
     return(
         <div>
             <div className="discoverContentContainer">

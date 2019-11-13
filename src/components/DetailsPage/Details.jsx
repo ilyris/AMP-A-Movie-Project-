@@ -11,7 +11,7 @@ import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
 const Details = ({location, handleBackButton}) =>  { 
     const { title, overview, release_date ,poster_path, vote_average,backdrop_path} = location.state.movies;
-
+  console.log(location.state.movies.id);
     const posterImageURL = `https://image.tmdb.org/t/p/original${poster_path}`;
     const backDropImage = `https://image.tmdb.org/t/p/original${backdrop_path}`;
     const baseURL2 = 'https://api.themoviedb.org/3/';
