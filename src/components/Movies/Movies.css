@@ -1,6 +1,7 @@
   
 .movieImage {
     height: 100%;
+    width: 175px;
   }
 .contentContainer {
     display: flex;
